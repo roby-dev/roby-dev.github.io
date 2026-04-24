@@ -1,0 +1,42 @@
+---
+import { experiences } from '../data/portfolio';
+---
+<section id="experiencia" class="py-24">
+
+  <div class="flex items-center gap-5 mb-16">
+    <span class="font-mono text-xs text-neutral-700 tracking-[0.32em]">01</span>
+    <h2 class="font-display font-bold text-sm text-white tracking-[0.22em] uppercase">Experiencia</h2>
+    <div class="flex-1 h-px bg-border-dark"></div>
+  </div>
+
+  <div>
+    {experiences.map((exp) => (
+      <div class="group border-t border-border-dark py-10 grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 hover:bg-white/[0.012] transition-colors duration-300 px-2 -mx-2">
+
+        <div class="md:col-span-3">
+          <span class="font-mono text-xs text-neutral-600">{exp.period}</span>
+        </div>
+
+        <div class="md:col-span-9">
+          <h3 class="font-display font-bold text-white text-base md:text-lg mb-1 group-hover:text-accent transition-colors duration-300">
+            {exp.role}
+          </h3>
+          <div class="font-mono text-[10px] text-accent uppercase tracking-[0.22em] mb-5">
+            {exp.company}
+          </div>
+          <ul class="space-y-2">
+            {exp.tasks.map(task => (
+              <li class="text-sm text-neutral-500 flex items-start gap-3 leading-relaxed">
+                <span class="text-accent shrink-0 mt-0.5 text-xs">—</span>
+                <span>{task}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+      </div>
+    ))}
+    <div class="border-t border-border-dark"></div>
+  </div>
+
+</section>
