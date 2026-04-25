@@ -45,21 +45,36 @@ body {
   to { width: 2.5rem; }
 }
 
-.fade-up {
-  opacity: 0;
-  animation: fadeSlideUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
+/* Static fallbacks — visible by default (reduced-motion safe) */
+.fade-up,
 .fade-in {
-  opacity: 0;
-  animation: fadeIn 1s ease forwards;
+  opacity: 1;
+  transform: none;
 }
 
 .line-grow {
-  width: 0;
-  animation: lineGrow 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  width: 2.5rem;
 }
 
+/* Animations — only when user has not opted out of motion */
+@media (prefers-reduced-motion: no-preference) {
+  .fade-up {
+    opacity: 0;
+    animation: fadeSlideUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  .fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+  }
+
+  .line-grow {
+    width: 0;
+    animation: lineGrow 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+}
+
+/* Delay utilities — harmless when no animation runs */
 .d1 { animation-delay: 0.05s; }
 .d2 { animation-delay: 0.2s; }
 .d3 { animation-delay: 0.35s; }

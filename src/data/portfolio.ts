@@ -5,8 +5,7 @@ export const developer = {
   location: "Tacna, Perú",
   linkedin: "https://www.linkedin.com/in/robzunigas/",
   github: "https://github.com/roby-dev",
-  email: "rgersonzs95@gmail.com",
-  phone: "+51 921 781 680"
+  email: "rgersonzs95@gmail.com"
 };
 
 export const experiences = [
@@ -15,13 +14,13 @@ export const experiences = [
     company: "Caja Tacna",
     period: "Abril 2024 – Presente",
     tasks: [
-      "API de Recaudadores Externos en .NET 8",
-      "Sistema de monitoreo con microservicios, RabbitMQ, Redis, MongoDB y Angular",
-      "Integración Unibanca con cifrado HSM, CQRS y Clean Architecture",
-      "Supervisión de BiPay y onboarding biométrico en Flutter",
-      "Code Reviews y pruebas de estrés con Apache JMeter",
-      "Optimización de EF Core: de 45s a 3.5s en arranque en frío",
-      "Pipelines CI/CD en TFS 2017 para iOS y Android"
+      "API de Recaudadores Externos: arquitectura extensible a N recaudadores (2 activos), 99.9% uptime, contenedor Docker listo para balanceador de carga",
+      "Sistema de monitoreo para 20 servicios financieros — configuración independiente por servicio vía Hangfire, 3 microservicios desacoplados + frontend de gestión",
+      "Integración financiera crítica Unibanca: CVV dinámico con cifrado HSM sobre Clean Architecture y CQRS",
+      "Arranque en frío EF Core reducido de 45s → 3.5s (92% de mejora de performance)",
+      "Supervisión técnica de BiPay y onboarding biométrico en Flutter para canal digital",
+      "CI/CD en TFS 2017 para releases iOS y Android — automatización de entrega móvil",
+      "Code reviews y pruebas de estrés con Apache JMeter en APIs financieras de alto impacto"
     ]
   },
   {
@@ -29,9 +28,9 @@ export const experiences = [
     company: "Caja Tacna",
     period: "Julio 2023 – Abril 2024",
     tasks: [
-      "Refactorización de APIs .NET Framework 4.8 (Stored Procs → C#)",
-      "WebSockets + Redis como Message Broker en Flutter",
-      "Funcionalidades transaccionales en Angular"
+      "Migración de lógica de negocio de Stored Procedures a C# en APIs .NET Framework 4.8 — mayor mantenibilidad y cobertura de tests",
+      "Comunicación en tiempo real en Flutter con WebSockets + Redis como Message Broker",
+      "Funcionalidades transaccionales en Angular integradas al core bancario"
     ]
   },
   {
@@ -39,9 +38,9 @@ export const experiences = [
     company: "Soporte Remoto S.A.C.",
     period: "Octubre 2022 – Julio 2023",
     tasks: [
-      "Dashboard Administrativo unificado con Blazor",
-      "Plataforma de recargas para casino con pasarela Kushki y WebSockets",
-      "Administración de servidores IIS, SSL Wildcard, DNS"
+      "Dashboard administrativo unificado en Blazor — consolidación de múltiples herramientas internas en una sola interfaz operativa",
+      "Plataforma de recargas para casino con pasarela Kushki y WebSockets — transacciones en tiempo real con conciliación automática",
+      "Administración de servidores IIS, certificados SSL Wildcard y DNS"
     ]
   },
   {
@@ -49,8 +48,7 @@ export const experiences = [
     company: "Dirección Regional de Salud Tacna",
     period: "Mayo 2022 – Septiembre 2022",
     tasks: [
-      "Digitalización de registro de capacitaciones para 100+ trabajadores",
-      "Stack: PHP, JavaScript, Angular, PostgreSQL"
+      "Digitalización del registro de capacitaciones para 100+ trabajadores del sector salud — eliminación completa del proceso manual en papel"
     ]
   }
 ];
