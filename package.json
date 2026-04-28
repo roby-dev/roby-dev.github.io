@@ -8,12 +8,14 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "start": "sirv dist --port $PORT --host 0.0.0.0 --single",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.4",
     "astro": "^6.1.9",
+    "sirv-cli": "^3.0.1",
     "tailwindcss": "^4.2.4"
   }
 }
