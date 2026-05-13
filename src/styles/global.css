@@ -15,6 +15,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 4rem;
   background-color: #050505;
   color: #e8e8e8;
 }
@@ -45,7 +46,7 @@ body {
   to { width: 2.5rem; }
 }
 
-/* Static fallbacks — visible by default (reduced-motion safe) */
+/* Static fallbacks — visible by default (reduced-motion safe, no-JS safe) */
 .fade-up,
 .fade-in {
   opacity: 1;
@@ -56,20 +57,30 @@ body {
   width: 2.5rem;
 }
 
-/* Animations — only when user has not opted out of motion */
+/* Animations — only when user has not opted out of motion AND JS has initialized */
 @media (prefers-reduced-motion: no-preference) {
-  .fade-up {
+  html.js .fade-up {
     opacity: 0;
+    transform: translateY(22px);
+  }
+
+  html.js .fade-up.visible {
     animation: fadeSlideUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
 
-  .fade-in {
+  html.js .fade-in {
     opacity: 0;
+  }
+
+  html.js .fade-in.visible {
     animation: fadeIn 1s ease forwards;
   }
 
-  .line-grow {
+  html.js .line-grow {
     width: 0;
+  }
+
+  html.js .line-grow.visible {
     animation: lineGrow 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
 }

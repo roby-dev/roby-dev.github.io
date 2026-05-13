@@ -46,6 +46,8 @@ const canonicalURL = Astro.url.href;
     <meta name="twitter:title" content={ogTitle} />
     <meta name="twitter:description" content={ogDescription} />
     <meta name="twitter:image" content={ogImage} />
+    <!-- Enable JS-dependent CSS -->
+    <script is:inline>document.documentElement.classList.add('js')</script>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,5 +55,22 @@ const canonicalURL = Astro.url.href;
   </head>
   <body class="antialiased selection:bg-accent selection:text-bg-dark flex flex-col min-h-screen">
     <slot />
+    <script>
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.08,
+        rootMargin: '0px 0px -40px 0px',
+      });
+
+      document.querySelectorAll('.fade-up, .fade-in, .line-grow').forEach(el => {
+        observer.observe(el);
+      });
+    </script>
   </body>
 </html>
