@@ -1,30 +1,12 @@
 export const developer = {
   name: "Roby Gerson Zuñiga Silva",
-  title: "Arquitecto de Software & Full Stack Developer",
-  specialty: "Sector financiero",
+  title: "Arquitecto de Software y Desarrollador Full Stack",
+  specialty: "Backend .NET, frontend y entrega de software",
   location: "Tacna, Perú",
   linkedin: "https://www.linkedin.com/in/robzunigas/",
   github: "https://github.com/roby-dev",
   email: "rgersonzs95@gmail.com"
 };
-
-export const heroHighlights = [
-  {
-    value: "99.9%",
-    label: "Disponibilidad",
-    detail: "API de recaudadores externos"
-  },
-  {
-    value: "92%",
-    label: "Reducción de arranque",
-    detail: "EF Core: de 45 s a 3.5 s"
-  },
-  {
-    value: "20",
-    label: "Servicios financieros",
-    detail: "Monitoreo independiente"
-  }
-];
 
 export const experiences = [
   {
@@ -32,7 +14,7 @@ export const experiences = [
     company: "Caja Tacna",
     period: "Abril 2024 – Presente",
     tasks: [
-      "API de Recaudadores Externos: arquitectura extensible a N recaudadores (2 activos), 99.9% uptime, contenedor Docker listo para balanceador de carga",
+      "API de Recaudadores Externos: arquitectura extensible a N recaudadores (2 activos), contenedorización con Docker y preparación para balanceo de carga",
       "Sistema de monitoreo para 20 servicios financieros — configuración independiente por servicio vía Hangfire, 3 microservicios desacoplados + frontend de gestión",
       "Integración financiera crítica Unibanca: CVV dinámico con cifrado HSM sobre Clean Architecture y CQRS",
       "Arranque en frío EF Core reducido de 45s → 3.5s (92% de mejora de performance)",
@@ -73,16 +55,48 @@ export const experiences = [
 
 export const techStack = [
   {
-    category: "Backend",
-    items: [".NET 8", "C#", "NestJS", "PHP", "Microservicios", "CQRS", "Clean Architecture", "Saga Pattern"]
+    category: "Backend y arquitectura",
+    items: [
+      ".NET Framework 4.8",
+      ".NET 8",
+      "C#",
+      "Entity Framework",
+      "Inyección de dependencias",
+      "Clean Architecture",
+      "CQRS",
+      "Strategy Pattern",
+      "Factory Pattern",
+      "Saga Pattern",
+      "Microservicios",
+      "NestJS",
+      "PHP"
+    ]
   },
   {
-    category: "Frontend & Mobile",
-    items: ["Angular", "Flutter", "Blazor", "Swift", "JavaScript", "TypeScript", "Riverpod", "Drift"]
+    category: "Integración y procesamiento",
+    items: ["WebSockets", "Redis", "RabbitMQ", "Workers en segundo plano", "Hangfire", "HSM"]
   },
   {
-    category: "Infraestructura & Datos",
-    items: ["SQL Server", "PostgreSQL", "MongoDB", "Redis", "RabbitMQ", "fly.io", "GitHub Actions", "Apache JMeter", "CI/CD", "IIS", "HSM"]
+    category: "Frontend y mobile",
+    items: ["Angular 21", "Flutter", "Blazor", "TypeScript", "JavaScript", "Swift", "Riverpod", "Drift"]
+  },
+  {
+    category: "Datos",
+    items: ["SQL Server", "MongoDB", "MySQL", "PostgreSQL"]
+  },
+  {
+    category: "Calidad, entrega y operaciones",
+    items: [
+      "xUnit",
+      "CI/CD",
+      "Docker",
+      "Builds y releases",
+      "Configuración de servidores",
+      "IIS",
+      "GitHub Actions",
+      "Apache JMeter",
+      "fly.io"
+    ]
   }
 ];
 
