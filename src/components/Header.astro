@@ -1,140 +1,118 @@
 ---
 import { developer } from '../data/portfolio';
 import Icon from './Icon.astro';
----
-<header class="fixed top-0 z-50 w-full border-b border-border-dark">
-  <div class="absolute inset-0 bg-bg-dark/90 backdrop-blur-md"></div>
-  <div class="relative max-w-5xl mx-auto px-4 sm:px-8 h-14 flex items-center justify-between">
 
-    <a href="#" class="font-display font-black text-sm tracking-[0.06em] text-white hover:text-accent transition-colors duration-200">
-      RZ<span class="text-accent">.</span>
+const navigation = [
+  { href: '#experiencia', label: 'Experiencia' },
+  { href: '#proyectos', label: 'Trabajo' },
+  { href: '#stack', label: 'Especialidad' },
+  { href: '#contacto', label: 'Contacto' },
+];
+---
+
+<header class="sticky top-0 z-50 border-b border-border-dark/80 bg-bg-dark/95 backdrop-blur-md">
+  <div class="mx-auto flex h-[4.5rem] w-full max-w-6xl items-center justify-between px-5 sm:px-8 lg:px-10">
+    <a
+      href="#inicio"
+      class="inline-flex min-h-11 items-center gap-3 font-bold tracking-[-0.02em] text-ink transition-colors hover:text-accent"
+      aria-label="Ir al inicio"
+    >
+      <span class="text-lg">RZ<span class="text-accent">.</span></span>
+      <span class="hidden border-l border-border-dark pl-3 text-xs font-medium text-muted sm:inline">
+        Arquitectura de software
+      </span>
     </a>
 
-    <!-- Desktop nav -->
-    <nav class="hidden md:flex gap-8 font-mono text-[11px] text-neutral-500">
-      <a href="#experiencia" class="hover:text-accent transition-colors duration-200 flex items-center gap-2">
-        <span class="text-accent text-[9px]">01</span>
-        <span class="tracking-[0.18em] uppercase">Experiencia</span>
-      </a>
-      <a href="#stack" class="hover:text-accent transition-colors duration-200 flex items-center gap-2">
-        <span class="text-accent text-[9px]">02</span>
-        <span class="tracking-[0.18em] uppercase">Stack</span>
-      </a>
-      <a href="#proyectos" class="hover:text-accent transition-colors duration-200 flex items-center gap-2">
-        <span class="text-accent text-[9px]">03</span>
-        <span class="tracking-[0.18em] uppercase">Proyectos</span>
-      </a>
-      <a href="#contacto" class="hover:text-accent transition-colors duration-200 flex items-center gap-2">
-        <span class="text-accent text-[9px]">04</span>
-        <span class="tracking-[0.18em] uppercase">Contacto</span>
-      </a>
+    <nav class="hidden items-center gap-7 md:flex" aria-label="Navegación principal">
+      {
+        navigation.map((item) => (
+          <a
+            href={item.href}
+            class="inline-flex min-h-11 items-center text-sm font-medium text-muted transition-colors hover:text-ink"
+          >
+            {item.label}
+          </a>
+        ))
+      }
     </nav>
 
-    <div class="flex items-center gap-4">
-      <!-- Desktop social icons -->
+    <div class="hidden items-center gap-1 md:flex">
       <a
         href={developer.github}
         target="_blank"
         rel="noopener noreferrer"
-        class="hidden md:inline-flex text-neutral-600 hover:text-accent transition-colors duration-200"
-        aria-label="GitHub"
+        class="inline-flex size-11 items-center justify-center text-muted transition-colors hover:text-accent"
+        aria-label="Abrir GitHub en una pestaña nueva"
       >
-        <Icon name="github" size={16} />
+        <Icon name="github" size={18} />
       </a>
       <a
         href={developer.linkedin}
         target="_blank"
         rel="noopener noreferrer"
-        class="hidden md:inline-flex text-neutral-600 hover:text-accent transition-colors duration-200"
-        aria-label="LinkedIn"
+        class="inline-flex size-11 items-center justify-center text-muted transition-colors hover:text-accent"
+        aria-label="Abrir LinkedIn en una pestaña nueva"
       >
-        <Icon name="linkedin" size={16} />
+        <Icon name="linkedin" size={18} />
       </a>
-
-      <!-- Hamburger button (mobile only) -->
-      <button
-        id="nav-toggle"
-        type="button"
-        class="md:hidden inline-flex items-center justify-center w-9 h-9 text-neutral-400 hover:text-accent transition-colors duration-200"
-        aria-controls="mobile-nav"
-        aria-expanded="false"
-        aria-label="Abrir menu"
-      >
-        <!-- Open icon (3 bars) -->
-        <svg class="icon-open" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
-          <line x1="2" y1="4.5" x2="16" y2="4.5" />
-          <line x1="2" y1="9" x2="16" y2="9" />
-          <line x1="2" y1="13.5" x2="16" y2="13.5" />
-        </svg>
-        <!-- Close icon (X) -->
-        <svg class="icon-close hidden" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
-          <line x1="3" y1="3" x2="15" y2="15" />
-          <line x1="15" y1="3" x2="3" y2="15" />
-        </svg>
-      </button>
     </div>
 
-  </div>
+    <details class="nav-disclosure relative md:hidden">
+      <summary
+        class="inline-flex size-11 cursor-pointer items-center justify-center text-muted transition-colors hover:text-ink"
+        aria-label="Abrir navegación"
+      >
+        <svg class="menu-open" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+          <line x1="3" y1="6" x2="19" y2="6" />
+          <line x1="3" y1="11" x2="19" y2="11" />
+          <line x1="3" y1="16" x2="19" y2="16" />
+        </svg>
+        <svg class="menu-close" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+          <line x1="4" y1="4" x2="18" y2="18" />
+          <line x1="18" y1="4" x2="4" y2="18" />
+        </svg>
+        <span class="sr-only">Menú</span>
+      </summary>
 
-  <!-- Mobile drawer (collapsed by default) -->
-  <nav
-    id="mobile-nav"
-    class="md:hidden overflow-hidden bg-bg-dark/95 backdrop-blur-md border-t border-border-dark"
-    style="max-height: 0;"
-    aria-label="Navegacion movil"
-  >
-    <ul class="flex flex-col px-4 py-4 gap-4 font-mono text-[12px] uppercase tracking-[0.18em] text-neutral-400">
-      <li>
-        <a href="#experiencia" class="mobile-nav-link block py-2 hover:text-accent transition-colors duration-200">
-          <span class="text-accent text-[10px] mr-3">01</span>Experiencia
-        </a>
-      </li>
-      <li>
-        <a href="#stack" class="mobile-nav-link block py-2 hover:text-accent transition-colors duration-200">
-          <span class="text-accent text-[10px] mr-3">02</span>Stack
-        </a>
-      </li>
-      <li>
-        <a href="#proyectos" class="mobile-nav-link block py-2 hover:text-accent transition-colors duration-200">
-          <span class="text-accent text-[10px] mr-3">03</span>Proyectos
-        </a>
-      </li>
-      <li>
-        <a href="#contacto" class="mobile-nav-link block py-2 hover:text-accent transition-colors duration-200">
-          <span class="text-accent text-[10px] mr-3">04</span>Contacto
-        </a>
-      </li>
-    </ul>
-  </nav>
+      <nav
+        class="absolute right-0 top-[calc(100%+0.75rem)] w-[min(18rem,calc(100vw-2.5rem))] border border-border-dark bg-card-bg p-3 shadow-2xl shadow-black/30"
+        aria-label="Navegación móvil"
+      >
+        <ul>
+          {
+            navigation.map((item) => (
+              <li class="border-b border-border-dark last:border-b-0">
+                <a
+                  href={item.href}
+                  class="flex min-h-11 items-center px-3 text-sm font-medium text-muted transition-colors hover:bg-white/[0.03] hover:text-ink"
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+    </details>
+  </div>
 </header>
 
 <script>
-  const btn = document.getElementById('nav-toggle');
-  const nav = document.getElementById('mobile-nav');
-  const iconOpen = btn?.querySelector('.icon-open');
-  const iconClose = btn?.querySelector('.icon-close');
+  const disclosure = document.querySelector<HTMLDetailsElement>('.nav-disclosure');
+  const summary = disclosure?.querySelector('summary');
 
-  function setOpen(open: boolean) {
-    if (!btn || !nav) return;
-    btn.setAttribute('aria-expanded', String(open));
-    btn.setAttribute('aria-label', open ? 'Cerrar menu' : 'Abrir menu');
-    nav.style.maxHeight = open ? nav.scrollHeight + 'px' : '0px';
-    iconOpen?.classList.toggle('hidden', open);
-    iconClose?.classList.toggle('hidden', !open);
-  }
-
-  btn?.addEventListener('click', () => {
-    const isOpen = btn.getAttribute('aria-expanded') === 'true';
-    setOpen(!isOpen);
+  disclosure?.addEventListener('toggle', () => {
+    summary?.setAttribute('aria-label', disclosure.open ? 'Cerrar navegación' : 'Abrir navegación');
   });
 
-  // Close on nav link click (in-page navigation)
-  nav?.querySelectorAll('.mobile-nav-link').forEach((link) => {
-    link.addEventListener('click', () => setOpen(false));
+  disclosure?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => disclosure.removeAttribute('open'));
   });
 
-  // Close on Escape key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') setOpen(false);
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && disclosure?.open) {
+      disclosure.removeAttribute('open');
+      summary?.focus();
+    }
   });
 </script>

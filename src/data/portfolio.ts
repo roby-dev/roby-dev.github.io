@@ -8,6 +8,24 @@ export const developer = {
   email: "rgersonzs95@gmail.com"
 };
 
+export const heroHighlights = [
+  {
+    value: "99.9%",
+    label: "Disponibilidad",
+    detail: "API de recaudadores externos"
+  },
+  {
+    value: "92%",
+    label: "Reducción de arranque",
+    detail: "EF Core: de 45 s a 3.5 s"
+  },
+  {
+    value: "20",
+    label: "Servicios financieros",
+    detail: "Monitoreo independiente"
+  }
+];
+
 export const experiences = [
   {
     role: "Analista Arquitecto de Sistemas",

@@ -11,13 +11,11 @@ interface Props {
 
 const {
   title,
-  description = `${developer.title} — ${developer.specialty}`,
+  description = developer.title + ' — ' + developer.specialty,
   image = '/og-image.png',
   type = 'website',
 } = Astro.props;
 
-const ogTitle = title;
-const ogDescription = description;
 const ogImage = new URL(image, Astro.site ?? Astro.url).href;
 const canonicalURL = Astro.url.href;
 ---
@@ -27,49 +25,56 @@ const canonicalURL = Astro.url.href;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b0d0e" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <!-- SEO -->
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
-    <!-- Open Graph -->
+
     <meta property="og:type" content={type} />
     <meta property="og:url" content={canonicalURL} />
-    <meta property="og:title" content={ogTitle} />
-    <meta property="og:description" content={ogDescription} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
     <meta property="og:locale" content="es_PE" />
     <meta property="og:site_name" content={developer.name} />
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={ogTitle} />
-    <meta name="twitter:description" content={ogDescription} />
-    <meta name="twitter:image" content={ogImage} />
-    <!-- Enable JS-dependent CSS -->
-    <script is:inline>document.documentElement.classList.add('js')</script>
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=JetBrains+Mono:ital,wght@0,400;0,500&display=swap" rel="stylesheet">
-  </head>
-  <body class="antialiased selection:bg-accent selection:text-bg-dark flex flex-col min-h-screen">
-    <slot />
-    <script>
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, {
-        threshold: 0.08,
-        rootMargin: '0px 0px -40px 0px',
-      });
 
-      document.querySelectorAll('.fade-up, .fade-in, .line-grow').forEach(el => {
-        observer.observe(el);
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <script is:inline>document.documentElement.classList.add('js')</script>
+  </head>
+  <body class="flex min-h-screen flex-col bg-bg-dark font-display text-ink antialiased">
+    <a
+      href="#contenido-principal"
+      class="fixed left-4 top-4 z-[100] -translate-y-24 bg-accent px-4 py-3 text-sm font-bold text-bg-dark transition-transform focus:translate-y-0"
+    >
+      Saltar al contenido
+    </a>
+
+    <slot />
+
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.08,
+          rootMargin: '0px 0px -32px 0px',
+        },
+      );
+
+      document.querySelectorAll('.fade-up').forEach((element) => {
+        observer.observe(element);
       });
     </script>
   </body>

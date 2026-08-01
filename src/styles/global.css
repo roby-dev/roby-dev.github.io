@@ -2,94 +2,112 @@
 
 @theme {
   --color-accent: var(--accent);
-  --color-bg-dark: #050505;
-  --color-card-bg: #0c0c0c;
-  --color-border-dark: #1f1f1f;
-  --font-display: 'Syne', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --color-bg-dark: #0b0d0e;
+  --color-card-bg: #111416;
+  --color-border-dark: #2a2f33;
+  --color-ink: #f3f0e8;
+  --color-muted: #b8b5ae;
+  --color-subtle: #8f8d87;
+  --font-display: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
 }
 
 :root {
-  --accent: #FFB800;
+  --accent: #d9a441;
+  color-scheme: dark;
 }
 
 html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 4rem;
-  background-color: #050505;
-  color: #e8e8e8;
+  background-color: #0b0d0e;
+  color: #f3f0e8;
+  scroll-padding-top: 5.5rem;
 }
 
 body {
-  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
-  background-size: 32px 32px;
+  margin: 0;
+  min-width: 20rem;
+  background-color: #0b0d0e;
+}
+
+[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+::selection {
+  background: #d9a441;
+  color: #0b0d0e;
+}
+
+:where(a, button, summary):focus-visible {
+  outline: 2px solid #f1bd59;
+  outline-offset: 4px;
+  border-radius: 0.125rem;
+}
+
+.nav-disclosure > summary {
+  list-style: none;
+}
+
+.nav-disclosure > summary::-webkit-details-marker {
+  display: none;
+}
+
+.nav-disclosure[open] .menu-open {
+  display: none;
+}
+
+.nav-disclosure:not([open]) .menu-close {
+  display: none;
 }
 
 @keyframes fadeSlideUp {
   from {
     opacity: 0;
-    transform: translateY(22px);
+    transform: translateY(14px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes lineGrow {
-  from { width: 0; }
-  to { width: 2.5rem; }
-}
-
-/* Static fallbacks — visible by default (reduced-motion safe, no-JS safe) */
-.fade-up,
-.fade-in {
+/* Content remains visible when JavaScript is unavailable. */
+.fade-up {
   opacity: 1;
   transform: none;
 }
 
-.line-grow {
-  width: 2.5rem;
-}
-
-/* Animations — only when user has not opted out of motion AND JS has initialized */
 @media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+
   html.js .fade-up {
     opacity: 0;
-    transform: translateY(22px);
+    transform: translateY(14px);
   }
 
   html.js .fade-up.visible {
-    animation: fadeSlideUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  }
-
-  html.js .fade-in {
-    opacity: 0;
-  }
-
-  html.js .fade-in.visible {
-    animation: fadeIn 1s ease forwards;
-  }
-
-  html.js .line-grow {
-    width: 0;
-  }
-
-  html.js .line-grow.visible {
-    animation: lineGrow 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation: fadeSlideUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
 }
 
-/* Delay utilities — harmless when no animation runs */
-.d1 { animation-delay: 0.05s; }
-.d2 { animation-delay: 0.2s; }
-.d3 { animation-delay: 0.35s; }
-.d4 { animation-delay: 0.5s; }
-.d5 { animation-delay: 0.65s; }
-.d6 { animation-delay: 0.8s; }
-.d7 { animation-delay: 0.95s; }
+.d1 { animation-delay: 0.04s; }
+.d2 { animation-delay: 0.12s; }
+.d3 { animation-delay: 0.2s; }
+.d4 { animation-delay: 0.28s; }
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

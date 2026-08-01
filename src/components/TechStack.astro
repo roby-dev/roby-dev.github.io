@@ -1,35 +1,32 @@
 ---
 import { techStack } from '../data/portfolio';
 ---
-<section id="stack" class="py-24">
 
-  <div class="flex items-center gap-5 mb-16">
-    <span class="font-mono text-xs text-neutral-700 tracking-[0.32em]">02</span>
-    <h2 class="font-display font-bold text-sm text-white tracking-[0.22em] uppercase">Stack Tecnológico</h2>
-    <div class="flex-1 h-px bg-border-dark"></div>
+<section id="stack" aria-labelledby="stack-heading" class="border-b border-border-dark py-20 sm:py-24 lg:py-28">
+  <div class="mb-12 max-w-2xl sm:mb-16">
+    <p class="mb-3 font-mono text-xs font-medium uppercase tracking-[0.18em] text-accent">Especialidad</p>
+    <h2 id="stack-heading" class="text-3xl font-semibold tracking-[-0.035em] text-ink sm:text-4xl">
+      Áreas de experiencia
+    </h2>
+    <p class="mt-4 text-base leading-7 text-muted">
+      Capacidades para diseñar, construir y operar soluciones de extremo a extremo.
+    </p>
   </div>
 
-  <div>
-    {techStack.map((category) => (
-      <div class="border-t border-border-dark py-8 grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-start">
-
-        <div class="md:col-span-3">
-          <span class="font-mono text-[10px] text-accent uppercase tracking-[0.28em]">
-            {category.category}
-          </span>
-        </div>
-
-        <div class="md:col-span-9 flex flex-wrap gap-2">
-          {category.items.map(tech => (
-            <span class="font-mono text-xs px-3 py-1.5 border border-border-dark text-neutral-500 hover:border-accent/60 hover:text-accent transition-colors duration-200 cursor-default">
-              {tech}
-            </span>
-          ))}
-        </div>
-
-      </div>
-    ))}
-    <div class="border-t border-border-dark"></div>
+  <div class="border-t border-border-dark">
+    {
+      techStack.map((category) => (
+        <article class="grid gap-5 border-b border-border-dark py-8 md:grid-cols-12 md:gap-10">
+          <h3 class="text-base font-semibold text-ink md:col-span-4">{category.category}</h3>
+          <ul class="flex flex-wrap gap-x-5 gap-y-3 md:col-span-8">
+            {
+              category.items.map((technology) => (
+                <li class="text-sm leading-6 text-muted">{technology}</li>
+              ))
+            }
+          </ul>
+        </article>
+      ))
+    }
   </div>
-
 </section>

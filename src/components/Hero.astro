@@ -1,85 +1,78 @@
 ---
-import { developer } from "../data/portfolio";
-import Icon from "./Icon.astro";
-
-const [firstName, secondName] = developer.name.split(" ");
+import { developer, heroHighlights } from '../data/portfolio';
+import Icon from './Icon.astro';
 ---
 
-<section class="min-h-[90vh] flex flex-col justify-center pt-14 pb-16 relative">
-  <!-- Decorative background mark -->
-  <div class="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-    <div class="absolute top-8 right-0 font-display font-black leading-none select-none" style="font-size: clamp(8rem, 22vw, 20rem); color: rgba(255,255,255,0.022);">RZ</div>
-  </div>
+<section id="inicio" aria-labelledby="hero-heading" class="border-b border-border-dark pb-20 pt-20 sm:pb-24 sm:pt-28 lg:pb-28 lg:pt-32">
+  <div class="max-w-5xl">
+    <p class="fade-up d1 mb-7 font-mono text-xs font-medium uppercase tracking-[0.18em] text-accent">
+      Arquitecto de software · Sistemas financieros
+    </p>
 
-  <!-- Accent line animated -->
-  <div class="h-px bg-accent mb-8 line-grow d1"></div>
+    <h1
+      id="hero-heading"
+      class="fade-up d2 max-w-5xl text-[clamp(2.5rem,7vw,6.5rem)] font-semibold leading-[0.94] tracking-[-0.055em] text-ink"
+    >
+      {developer.name}
+    </h1>
 
-  <!-- Label -->
-  <p class="font-mono text-[11px] text-neutral-500 uppercase tracking-[0.38em] mb-8 fade-up d2">Arquitecto de Software &middot; Sector Financiero</p>
+    <p class="fade-up d3 mt-8 max-w-2xl text-lg leading-8 text-muted sm:text-xl sm:leading-9">
+      Diseño y construyo sistemas financieros seguros, escalables y preparados para operar con confiabilidad.
+    </p>
 
-  <!-- Main heading -->
-  <h1 class="font-display font-black leading-[0.88] tracking-[-0.025em] text-white mb-3 fade-up d3" style="font-size: clamp(3.5rem, 10.5vw, 8.5rem);">
-    {firstName.toUpperCase()}<br />
-    <span class="text-accent">{secondName.toUpperCase()}</span>
-  </h1>
-
-  <!-- Role line -->
-  <p class="font-mono text-[11px] text-neutral-600 tracking-[0.14em] uppercase mb-6 fade-up d4">Software Engineer</p>
-
-  <!-- Bio -->
-  <p class="text-sm text-neutral-500 max-w-sm mb-12 leading-relaxed fade-up d4">
-    Especializado en sistemas financieros de alto rendimiento.<br />
-    Arquitectura limpia, código seguro y escalable.
-  </p>
-
-  <!-- Stats -->
-  <div class="flex items-center gap-10 mb-12 fade-up d5">
-    <div>
-      <div class="font-display font-black text-3xl text-white leading-none">3+</div>
-      <div class="font-mono text-[10px] text-neutral-600 uppercase tracking-[0.22em] mt-1.5">Años</div>
-    </div>
-    <div class="w-px h-10 bg-border-dark"></div>
-    <div>
-      <div class="font-display font-black text-3xl text-white leading-none">5+</div>
-      <div class="font-mono text-[10px] text-neutral-600 uppercase tracking-[0.22em] mt-1.5">Proyectos</div>
-    </div>
-    <div class="w-px h-10 bg-border-dark"></div>
-    <div>
-      <div class="font-display font-black text-3xl text-accent leading-none">FS</div>
-      <div class="font-mono text-[10px] text-neutral-600 uppercase tracking-[0.22em] mt-1.5">Full Stack</div>
+    <div class="fade-up d4 mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+      <a
+        href="#experiencia"
+        class="inline-flex min-h-12 items-center justify-center bg-accent px-6 text-sm font-bold text-bg-dark transition-colors hover:bg-[#efbd5e]"
+      >
+        Ver experiencia
+      </a>
+      <a
+        href="/cv.pdf"
+        download
+        class="inline-flex min-h-12 items-center justify-center border border-border-dark px-6 text-sm font-semibold text-ink transition-colors hover:border-muted hover:bg-white/[0.03]"
+      >
+        Descargar CV
+      </a>
+      <a
+        href={'mailto:' + developer.email}
+        class="inline-flex min-h-12 items-center justify-center px-4 text-sm font-semibold text-muted transition-colors hover:text-ink"
+      >
+        Contactar
+      </a>
     </div>
   </div>
 
-  <!-- CTAs / Social links -->
-  <div class="flex flex-wrap gap-3 fade-up d6">
-    <a href="/cv.pdf" download class="group inline-flex items-center gap-3 px-6 py-3 bg-accent text-black font-display font-bold text-sm hover:bg-white transition-colors duration-200">
-      Descargar CV
-      <span class="group-hover:translate-x-1 transition-transform duration-200">→</span>
-    </a>
+  <dl class="mt-16 grid border-y border-border-dark sm:grid-cols-3">
+    {
+      heroHighlights.map((highlight) => (
+        <div class="border-b border-border-dark py-6 last:border-b-0 sm:border-b-0 sm:border-r sm:px-6 sm:first:pl-0 sm:last:border-r-0">
+          <dt class="font-mono text-[0.7rem] uppercase tracking-[0.16em] text-subtle">{highlight.label}</dt>
+          <dd class="mt-3 text-3xl font-semibold tracking-[-0.04em] text-ink">{highlight.value}</dd>
+          <dd class="mt-2 text-sm leading-6 text-muted">{highlight.detail}</dd>
+        </div>
+      ))
+    }
+  </dl>
 
+  <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm">
     <a
       href={developer.github}
       target="_blank"
       rel="noopener noreferrer"
-      class="inline-flex items-center gap-2 px-5 py-3 border border-border-dark font-mono text-[11px] text-neutral-500 tracking-[0.1em] hover:border-accent hover:text-accent transition-colors duration-200"
+      class="inline-flex min-h-11 items-center gap-2 text-muted transition-colors hover:text-accent"
     >
-      <Icon name="github" size={14} />
-      GitHub ↗
+      <Icon name="github" size={16} />
+      GitHub <span aria-hidden="true">↗</span>
     </a>
-
     <a
       href={developer.linkedin}
       target="_blank"
       rel="noopener noreferrer"
-      class="inline-flex items-center gap-2 px-5 py-3 border border-border-dark font-mono text-[11px] text-neutral-500 tracking-[0.1em] hover:border-accent hover:text-accent transition-colors duration-200"
+      class="inline-flex min-h-11 items-center gap-2 text-muted transition-colors hover:text-accent"
     >
-      <Icon name="linkedin" size={14} />
-      LinkedIn ↗
-    </a>
-
-    <a href={`mailto:${developer.email}`} class="inline-flex items-center gap-2 px-5 py-3 border border-border-dark font-mono text-[11px] text-neutral-500 tracking-[0.1em] hover:border-accent hover:text-accent transition-colors duration-200">
-      <Icon name="email" size={14} />
-      Email ↗
+      <Icon name="linkedin" size={16} />
+      LinkedIn <span aria-hidden="true">↗</span>
     </a>
   </div>
 </section>
