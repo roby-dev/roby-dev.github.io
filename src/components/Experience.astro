@@ -2,40 +2,40 @@
 import { experiences } from '../data/portfolio';
 ---
 
-<section id="experiencia" aria-labelledby="experience-heading" class="full-bleed theme-dark py-20 sm:py-28">
+<section id="experiencia" aria-labelledby="experience-heading" class="py-16 sm:py-24">
   <div class="grid gap-10 lg:grid-cols-12 lg:gap-14">
     <div class="lg:col-span-4">
-      <p class="font-mono text-xs font-black uppercase tracking-[0.18em] text-accent">01 / Trayectoria</p>
-      <h2 id="experience-heading" class="mt-4 text-5xl font-black uppercase leading-none tracking-[-0.06em] sm:text-6xl">
-        Experiencia<br /><span class="text-accent">que entrega.</span>
+      <p class="font-mono text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-accent-soft">02 / Trayectoria</p>
+      <h2 id="experience-heading" class="mt-4 text-4xl font-semibold leading-tight tracking-[-0.045em] text-ink sm:text-5xl">
+        Experiencia aplicada a sistemas exigentes.
       </h2>
-      <p class="mt-6 max-w-sm text-base leading-7 text-bg-dark/65">
-        Sistemas críticos, integraciones financieras y productos que necesitan funcionar más allá de la demo.
+      <p class="mt-6 max-w-sm text-sm leading-7 text-muted">
+        Integraciones financieras, modernización, operación y producto con responsabilidad de extremo a extremo.
       </p>
     </div>
 
-    <ol class="border-t border-white/25 lg:col-span-8">
+    <ol class="border-t border-white/10 lg:col-span-8">
       {
         experiences.map((experience, index) => (
-          <li class="border-b border-white/25 py-9 sm:py-11">
-            <article class="grid gap-6 sm:grid-cols-[4.5rem_1fr]">
-              <span class="font-mono text-3xl font-black text-accent" aria-hidden="true">
+          <li class="fade-up border-b border-white/10 py-8 sm:py-10">
+            <article class="grid min-w-0 gap-5 sm:grid-cols-[2.75rem_minmax(0,1fr)]">
+              <span class="font-mono text-xs font-semibold text-accent-soft" aria-hidden="true">
                 {String(index + 1).padStart(2, '0')}
               </span>
-              <div>
-                <div class="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
-                  <div>
-                    <h3 class="text-2xl font-black tracking-[-0.035em] text-bg-dark">{experience.role}</h3>
-                    <p class="mt-2 text-sm font-black uppercase tracking-[0.1em] text-accent">{experience.company}</p>
+              <div class="min-w-0">
+                <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
+                  <div class="min-w-0">
+                    <h3 class="text-xl font-semibold tracking-[-0.025em] text-ink sm:text-2xl">{experience.role}</h3>
+                    <p class="mt-2 text-xs font-semibold uppercase tracking-[0.12em] text-accent-soft">{experience.company}</p>
                   </div>
-                  <p class="shrink-0 font-mono text-[0.68rem] leading-5 text-bg-dark/50">{experience.period}</p>
+                  <p class="shrink-0 font-mono text-[0.66rem] leading-5 text-subtle">{experience.period}</p>
                 </div>
 
-                <ul class="mt-7 grid gap-4">
+                <ul class="mt-6 grid gap-3">
                   {
                     experience.tasks.map((task) => (
-                      <li class="grid grid-cols-[0.8rem_1fr] gap-3 text-[0.95rem] leading-7 text-bg-dark/68">
-                        <span class="mt-[0.7rem] h-px bg-accent" aria-hidden="true" />
+                      <li class="grid min-w-0 grid-cols-[0.5rem_minmax(0,1fr)] gap-3 text-sm leading-7 text-muted">
+                        <span class="mt-[0.72rem] size-1 rounded-full bg-accent" aria-hidden="true" />
                         <span>{task}</span>
                       </li>
                     ))

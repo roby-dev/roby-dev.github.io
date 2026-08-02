@@ -3,30 +3,29 @@ import { developer } from '../data/portfolio';
 import Icon from './Icon.astro';
 
 const navigation = [
-  { href: '#experiencia', label: 'Experiencia', index: '01' },
-  { href: '#proyectos', label: 'Proyectos', index: '02' },
-  { href: '#stack', label: 'Capacidades', index: '03' },
-  { href: '#contacto', label: 'Contacto', index: '04' },
+  { href: '#proyectos', label: 'Proyectos' },
+  { href: '#experiencia', label: 'Experiencia' },
+  { href: '#stack', label: 'Capacidades' },
+  { href: '#contacto', label: 'Contacto' },
 ];
 ---
 
-<header class="sticky top-0 z-50 border-b border-white/15 bg-ink text-bg-dark">
-  <div class="mx-auto flex h-[4.75rem] w-full max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-10">
+<header class="sticky top-0 z-50 border-b border-white/10 bg-bg-dark/90 backdrop-blur-xl">
+  <div class="mx-auto flex h-[4.75rem] w-full max-w-7xl items-center justify-between px-4 sm:px-7 lg:px-10">
     <a href="#inicio" class="group inline-flex min-h-11 items-center gap-3" aria-label="Ir al inicio">
-      <span class="grid size-9 place-items-center bg-accent font-mono text-sm font-black text-ink transition-transform group-hover:rotate-6">
+      <span class="grid size-10 place-items-center rounded-full border border-accent/55 bg-panel font-mono text-xs font-bold tracking-[0.12em] text-accent-soft transition-colors group-hover:border-accent">
         RZ
       </span>
-      <span class="hidden text-[0.68rem] font-bold uppercase leading-4 tracking-[0.16em] text-bg-dark/70 sm:block">
-        Software<br />Architect
+      <span class="hidden text-xs font-semibold leading-4 text-muted sm:block">
+        Roby Zúñiga<br /><span class="font-normal text-subtle">Software Architect</span>
       </span>
     </a>
 
-    <nav class="hidden items-center gap-8 lg:flex" aria-label="Navegación principal">
+    <nav class="hidden items-center gap-7 lg:flex" aria-label="Navegación principal">
       {
         navigation.map((item) => (
-          <a href={item.href} class="group inline-flex min-h-11 items-center gap-2 text-sm font-bold">
-            <span class="font-mono text-[0.62rem] text-accent">{item.index}</span>
-            <span class="text-bg-dark/75 transition-colors group-hover:text-white">{item.label}</span>
+          <a href={item.href} class="relative inline-flex min-h-11 items-center text-sm font-medium text-muted transition-colors after:absolute after:inset-x-0 after:bottom-1 after:h-px after:origin-left after:scale-x-0 after:bg-accent after:transition-transform hover:text-ink hover:after:scale-x-100">
+            {item.label}
           </a>
         ))
       }
@@ -37,51 +36,56 @@ const navigation = [
         href={developer.github}
         target="_blank"
         rel="noopener noreferrer"
-        class="hidden size-11 items-center justify-center text-bg-dark/65 transition-colors hover:text-accent sm:inline-flex"
+        class="hidden size-11 items-center justify-center text-subtle transition-colors hover:text-accent-soft sm:inline-flex"
         aria-label="Abrir GitHub en una pestaña nueva"
       >
-        <Icon name="github" size={18} />
+        <Icon name="github" size={17} />
       </a>
       <a
         href={developer.linkedin}
         target="_blank"
         rel="noopener noreferrer"
-        class="hidden size-11 items-center justify-center text-bg-dark/65 transition-colors hover:text-accent sm:inline-flex"
+        class="hidden size-11 items-center justify-center text-subtle transition-colors hover:text-accent-soft sm:inline-flex"
         aria-label="Abrir LinkedIn en una pestaña nueva"
       >
-        <Icon name="linkedin" size={18} />
+        <Icon name="linkedin" size={17} />
+      </a>
+      <a href={'mailto:' + developer.email} class="hidden min-h-11 items-center rounded-md border border-accent/50 px-4 text-sm font-semibold text-accent-soft transition-colors hover:border-accent hover:bg-accent hover:text-bg-dark lg:inline-flex">
+        Contactar
       </a>
 
       <details class="nav-disclosure relative lg:hidden">
         <summary
-          class="inline-flex size-11 cursor-pointer items-center justify-center border border-white/20 text-bg-dark"
+          class="inline-flex size-11 cursor-pointer items-center justify-center rounded-md border border-white/15 text-ink"
           aria-label="Abrir navegación"
         >
-          <svg class="menu-open" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <svg class="menu-open" width="21" height="21" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
             <line x1="3" y1="6" x2="19" y2="6" />
             <line x1="3" y1="11" x2="19" y2="11" />
             <line x1="3" y1="16" x2="19" y2="16" />
           </svg>
-          <svg class="menu-close" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <svg class="menu-close" width="21" height="21" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
             <line x1="4" y1="4" x2="18" y2="18" />
             <line x1="18" y1="4" x2="4" y2="18" />
           </svg>
           <span class="sr-only">Menú</span>
         </summary>
 
-        <nav class="absolute right-0 top-[calc(100%+0.8rem)] w-[min(20rem,calc(100vw-2.5rem))] border border-white/20 bg-ink p-3 shadow-2xl" aria-label="Navegación móvil">
+        <nav class="absolute right-0 top-[calc(100%+0.7rem)] w-[min(19rem,calc(100vw-2rem))] rounded-lg border border-white/15 bg-panel p-2 shadow-2xl" aria-label="Navegación móvil">
           <ul>
             {
               navigation.map((item) => (
-                <li class="border-b border-white/15 last:border-b-0">
-                  <a href={item.href} class="flex min-h-12 items-center gap-3 px-3 text-sm font-bold text-bg-dark/80 hover:text-white">
-                    <span class="font-mono text-[0.65rem] text-accent">{item.index}</span>
+                <li>
+                  <a href={item.href} class="flex min-h-12 items-center rounded-md px-3 text-sm font-medium text-muted hover:bg-surface hover:text-ink">
                     {item.label}
                   </a>
                 </li>
               ))
             }
           </ul>
+          <a href={'mailto:' + developer.email} class="mt-2 flex min-h-12 items-center justify-center rounded-md bg-accent text-sm font-bold text-bg-dark">
+            Contactar
+          </a>
         </nav>
       </details>
     </div>

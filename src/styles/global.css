@@ -1,74 +1,62 @@
 @import "tailwindcss";
 
 @theme {
-  --color-accent: #ff5c35;
-  --color-signal: #2457ff;
-  --color-bg-dark: #f2f0e9;
-  --color-card-bg: #fffdf7;
-  --color-border-dark: #171b1b;
-  --color-ink: #111515;
-  --color-muted: #4e5654;
-  --color-subtle: #747c79;
-  --font-display: "Arial", "Helvetica Neue", ui-sans-serif, system-ui, sans-serif;
+  --color-accent: #c98b72;
+  --color-accent-soft: #e4b8a5;
+  --color-bg-dark: #0b111a;
+  --color-panel: #111a27;
+  --color-surface: #172231;
+  --color-border-dark: #293647;
+  --color-ink: #edf1f5;
+  --color-muted: #a7b1bf;
+  --color-subtle: #808c9d;
+  --font-display: "Inter", "Segoe UI", "Helvetica Neue", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
 }
 
 :root {
-  color-scheme: light;
-  --grid-line: rgb(17 21 21 / 0.075);
+  color-scheme: dark;
 }
 
 html {
-  background: #f2f0e9;
-  color: #111515;
-  scroll-padding-top: 5.5rem;
+  background: #0b111a;
+  color: #edf1f5;
+  scroll-padding-top: 5.25rem;
 }
 
 body {
   margin: 0;
   min-width: 20rem;
-  background-color: #f2f0e9;
+  overflow-x: clip;
+  background: #0b111a;
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  content: "";
   background-image:
-    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+    linear-gradient(rgb(255 255 255 / 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.018) 1px, transparent 1px);
   background-size: 4rem 4rem;
+  mask-image: linear-gradient(to bottom, black, transparent 72%);
 }
 
 [id] {
-  scroll-margin-top: 5.5rem;
+  scroll-margin-top: 5.25rem;
 }
 
 ::selection {
-  background: #2457ff;
-  color: #fffdf7;
+  background: #c98b72;
+  color: #0b111a;
 }
 
 :where(a, button, summary):focus-visible {
-  outline: 3px solid #2457ff;
+  outline: 3px solid #e4b8a5;
   outline-offset: 4px;
-  border-radius: 0.125rem;
-}
-
-.full-bleed {
-  --section-bg: #111515;
-  background: var(--section-bg);
-  box-shadow: 0 0 0 100vmax var(--section-bg);
-  clip-path: inset(0 -100vmax);
-}
-
-.theme-dark {
-  --section-bg: #111515;
-  color: #f2f0e9;
-}
-
-.theme-signal {
-  --section-bg: #2457ff;
-  color: #fffdf7;
-}
-
-.theme-contact {
-  --section-bg: #ff5c35;
-  color: #111515;
+  border-radius: 0.25rem;
 }
 
 .nav-disclosure > summary {
@@ -87,68 +75,80 @@ body {
   display: none;
 }
 
-.architecture-map {
-  background:
-    radial-gradient(circle at center, rgb(36 87 255 / 0.13), transparent 42%),
-    linear-gradient(to right, rgb(17 21 21 / 0.09) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(17 21 21 / 0.09) 1px, transparent 1px);
-  background-size: auto, 2rem 2rem, 2rem 2rem;
+.profile-mark {
+  position: relative;
+  isolation: isolate;
 }
 
-.architecture-map::before,
-.architecture-map::after {
+.profile-mark::before,
+.profile-mark::after {
   position: absolute;
-  inset: 50% 12%;
-  height: 1px;
+  z-index: -1;
   content: "";
-  background: #111515;
-  transform-origin: center;
+  border: 1px solid rgb(201 139 114 / 0.35);
+  border-radius: 999px;
 }
 
-.architecture-map::after {
-  transform: rotate(90deg);
+.profile-mark::before {
+  inset: -0.55rem;
 }
 
-.map-node {
+.profile-mark::after {
+  inset: -1.1rem;
+  border-color: rgb(255 255 255 / 0.08);
+}
+
+.project-visual {
+  position: relative;
+  min-height: 13rem;
+  overflow: hidden;
+  border: 1px solid #293647;
+  background: #0e1622;
+}
+
+.project-visual::before {
   position: absolute;
-  z-index: 1;
+  inset: 0;
+  content: "";
+  background-image:
+    linear-gradient(rgb(255 255 255 / 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.035) 1px, transparent 1px);
+  background-size: 2rem 2rem;
+}
+
+.project-flow {
+  position: absolute;
+  inset: 4.25rem 1.5rem 1.5rem;
   display: grid;
-  min-width: 5.5rem;
-  min-height: 3rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: center;
+  gap: clamp(0.4rem, 2vw, 1rem);
+}
+
+.project-node {
+  display: grid;
+  min-width: 0;
+  min-height: 4.25rem;
   place-items: center;
-  border: 1px solid #111515;
-  background: #fffdf7;
-  padding: 0.5rem 0.75rem;
+  border: 1px solid rgb(201 139 114 / 0.6);
+  background: #172231;
+  padding: 0.5rem;
+  color: #e4b8a5;
   font-family: var(--font-mono);
-  font-size: 0.66rem;
+  font-size: clamp(0.5rem, 2vw, 0.65rem);
   font-weight: 700;
   letter-spacing: 0.08em;
+  text-align: center;
   text-transform: uppercase;
 }
 
-.map-node-core {
-  left: 50%;
-  top: 50%;
-  min-width: 6.5rem;
-  min-height: 6.5rem;
-  transform: translate(-50%, -50%);
-  border-radius: 999px;
-  background: #2457ff;
-  color: #fffdf7;
-}
-
-.map-node-top { left: 50%; top: 5%; transform: translateX(-50%); }
-.map-node-right { right: 3%; top: 50%; transform: translateY(-50%); }
-.map-node-bottom { bottom: 5%; left: 50%; transform: translateX(-50%); }
-.map-node-left { left: 3%; top: 50%; transform: translateY(-50%); }
-
-.project-feature {
-  transition: transform 220ms ease, box-shadow 220ms ease;
-}
-
-.project-feature:hover {
-  transform: translate(-4px, -4px);
-  box-shadow: 8px 8px 0 #111515;
+.project-node + .project-node::before {
+  position: absolute;
+  width: 1rem;
+  height: 1px;
+  margin-left: calc(-100% - 1rem);
+  content: "";
+  background: #c98b72;
 }
 
 .fade-up {
@@ -159,7 +159,7 @@ body {
 @keyframes fadeSlideUp {
   from {
     opacity: 0;
-    transform: translateY(18px);
+    transform: translateY(14px);
   }
 
   to {
@@ -175,18 +175,31 @@ body {
 
   html.js .fade-up {
     opacity: 0;
-    transform: translateY(18px);
+    transform: translateY(14px);
   }
 
   html.js .fade-up.visible {
-    animation: fadeSlideUp 0.72s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation: fadeSlideUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
 }
 
 .d1 { animation-delay: 0.04s; }
-.d2 { animation-delay: 0.12s; }
-.d3 { animation-delay: 0.2s; }
-.d4 { animation-delay: 0.28s; }
+.d2 { animation-delay: 0.11s; }
+.d3 { animation-delay: 0.18s; }
+.d4 { animation-delay: 0.25s; }
+
+@media (max-width: 360px) {
+  .project-flow {
+    inset-inline: 0.75rem;
+    gap: 0.3rem;
+  }
+
+  .project-node {
+    min-height: 3.75rem;
+    padding-inline: 0.25rem;
+    letter-spacing: 0.03em;
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

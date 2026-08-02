@@ -12,16 +12,16 @@ import { developer } from '../data/portfolio';
 <Layout title={developer.name + ' — ' + developer.title}>
   <Header />
 
-  <main id="contenido-principal" class="mx-auto w-full max-w-7xl flex-grow px-5 sm:px-8 lg:px-10">
+  <main id="contenido-principal" class="mx-auto w-full max-w-7xl flex-grow px-4 sm:px-7 lg:px-10">
     <Hero />
-    <Experience />
     <Projects />
+    <Experience />
     <TechStack />
     <Contact />
   </main>
 
-  <footer class="border-t border-white/15 bg-ink py-8 text-bg-dark">
-    <div class="mx-auto flex w-full max-w-7xl flex-col gap-2 px-5 text-sm text-bg-dark/55 sm:flex-row sm:items-center sm:justify-between sm:px-8 lg:px-10">
+  <footer class="border-t border-white/10 py-8">
+    <div class="mx-auto flex w-full max-w-7xl flex-col gap-2 px-4 text-xs text-subtle sm:flex-row sm:items-center sm:justify-between sm:px-7 lg:px-10">
       <p>© {new Date().getFullYear()} {developer.name}</p>
       <p>Construido con Astro y Tailwind CSS.</p>
     </div>

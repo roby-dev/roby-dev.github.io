@@ -2,26 +2,28 @@
 import { techStack } from '../data/portfolio';
 ---
 
-<section id="stack" aria-labelledby="stack-heading" class="full-bleed theme-signal py-20 sm:py-28">
-  <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
-    <div class="lg:col-span-5">
-      <p class="font-mono text-xs font-black uppercase tracking-[0.18em] text-white/70">03 / Capacidades</p>
-      <h2 id="stack-heading" class="mt-4 text-5xl font-black uppercase leading-[0.88] tracking-[-0.065em] sm:text-7xl">
-        Amplio<br />sin ser<br /><span class="text-accent">superficial.</span>
-      </h2>
-      <p class="mt-7 max-w-md text-base font-medium leading-7 text-white/75">
-        La arquitectura no termina en el backend. Integro producto, datos, calidad, entrega y operación como un solo sistema.
+<section id="stack" aria-labelledby="stack-heading" class="py-16 sm:py-24">
+  <div class="overflow-hidden rounded-xl border border-white/10 bg-panel">
+    <div class="grid gap-8 border-b border-white/10 px-5 py-9 sm:px-8 lg:grid-cols-12 lg:items-end lg:px-10 lg:py-12">
+      <div class="lg:col-span-7">
+        <p class="font-mono text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-accent-soft">03 / Capacidades</p>
+        <h2 id="stack-heading" class="mt-4 text-4xl font-semibold leading-tight tracking-[-0.045em] text-ink sm:text-5xl">
+          Amplitud técnica con profundidad práctica.
+        </h2>
+      </div>
+      <p class="max-w-md text-sm leading-7 text-muted lg:col-span-5 lg:justify-self-end">
+        Conecto arquitectura, interfaces, datos, calidad y operación para entregar sistemas completos, no piezas aisladas.
       </p>
     </div>
 
-    <div class="grid border-l border-t border-white/40 sm:grid-cols-2 lg:col-span-7">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3">
       {
         techStack.map((category, index) => (
-          <article class="border-b border-r border-white/40 p-6 sm:p-7">
-            <span class="font-mono text-3xl font-black text-accent">{String(index + 1).padStart(2, '0')}</span>
-            <h3 class="mt-6 text-xl font-black uppercase leading-tight tracking-[-0.025em]">{category.category}</h3>
+          <article class="border-b border-white/10 p-5 sm:border-r sm:p-7 lg:p-8 [&:nth-last-child(-n+1)]:border-b-0 sm:[&:nth-last-child(-n+2)]:border-b-0 lg:[&:nth-last-child(-n+3)]:border-b-0">
+            <span class="font-mono text-[0.62rem] font-semibold text-accent-soft">{String(index + 1).padStart(2, '0')}</span>
+            <h3 class="mt-4 text-lg font-semibold tracking-[-0.02em] text-ink">{category.category}</h3>
             <ul class="mt-5 flex flex-wrap gap-x-3 gap-y-2">
-              {category.items.map((technology) => <li class="border border-white/45 px-2.5 py-1.5 text-xs font-bold text-white/80">{technology}</li>)}
+              {category.items.map((technology) => <li class="text-xs leading-5 text-muted">{technology}</li>)}
             </ul>
           </article>
         ))
