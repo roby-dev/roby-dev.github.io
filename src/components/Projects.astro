@@ -6,77 +6,72 @@ const personalProjects = projects.filter((project) => project.type === 'personal
 const professionalProjects = projects.filter((project) => project.type === 'professional');
 ---
 
-<section id="proyectos" aria-labelledby="projects-heading" class="border-b border-border-dark py-20 sm:py-24 lg:py-28">
-  <div class="mb-12 max-w-2xl sm:mb-16">
-    <p class="mb-3 font-mono text-xs font-medium uppercase tracking-[0.18em] text-accent">Trabajo seleccionado</p>
-    <h2 id="projects-heading" class="text-3xl font-semibold tracking-[-0.035em] text-ink sm:text-4xl">
-      Proyectos
-    </h2>
-    <p class="mt-4 text-base leading-7 text-muted">
-      Productos personales y soluciones desarrolladas para entornos financieros de alta exigencia.
+<section id="proyectos" aria-labelledby="projects-heading" class="py-20 sm:py-28">
+  <div class="mb-14 grid gap-7 border-b-2 border-ink pb-10 md:grid-cols-12 md:items-end">
+    <div class="md:col-span-8">
+      <p class="font-mono text-xs font-black uppercase tracking-[0.18em] text-signal">02 / Trabajo seleccionado</p>
+      <h2 id="projects-heading" class="mt-4 text-5xl font-black uppercase leading-[0.9] tracking-[-0.065em] text-ink sm:text-7xl">
+        Casos, no<br /><span class="text-signal">decoración.</span>
+      </h2>
+    </div>
+    <p class="max-w-md text-base font-medium leading-7 text-muted md:col-span-4">
+      Productos personales y soluciones financieras presentadas por problema, decisión técnica y capacidad de entrega.
     </p>
   </div>
 
-  <div>
-    <div class="mb-14">
-      <h3 class="mb-5 text-sm font-semibold uppercase tracking-[0.12em] text-muted">Proyectos personales</h3>
-      <div class="grid border-t border-border-dark md:grid-cols-2">
-        {
-          personalProjects.map((project) => (
-            <article class="border-b border-border-dark py-8 md:px-7 md:odd:border-r md:odd:pl-0">
-              <h4 class="text-xl font-semibold tracking-[-0.025em] text-ink">{project.title}</h4>
-              <p class="mt-4 max-w-xl text-[0.95rem] leading-7 text-muted">{project.description}</p>
+  <div class="grid gap-8 lg:grid-cols-2">
+    {
+      personalProjects.map((project, index) => (
+        <article class:list={['project-feature border-2 border-ink p-6 sm:p-8', index === 0 ? 'bg-card-bg' : 'bg-accent']}>
+          <div class="flex items-center justify-between border-b border-ink pb-4 font-mono text-[0.65rem] font-black uppercase tracking-[0.12em]">
+            <span>Producto propio</span>
+            <span>Case / 0{index + 1}</span>
+          </div>
 
-              <ul class="mt-5 flex flex-wrap gap-x-4 gap-y-2" aria-label={'Tecnologías de ' + project.title}>
-                {
-                  project.tech.map((technology) => (
-                    <li class="font-mono text-[0.7rem] uppercase tracking-[0.12em] text-subtle">{technology}</li>
-                  ))
-                }
-              </ul>
+          <div class="mt-8 grid gap-8 sm:grid-cols-[1fr_9rem] sm:items-start">
+            <div>
+              <h3 class="text-3xl font-black uppercase leading-none tracking-[-0.045em] text-ink sm:text-4xl">{project.title}</h3>
+              <p class="mt-5 text-[0.98rem] font-medium leading-7 text-muted">{project.description}</p>
+            </div>
+            <div class="grid aspect-square place-items-center border border-ink bg-ink text-center font-mono text-xs font-black uppercase leading-5 tracking-[0.1em] text-bg-dark">
+              Idea<br />→<br />Producto
+            </div>
+          </div>
 
-              {
-                project.github && (
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="mt-6 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-muted transition-colors hover:text-accent"
-                    aria-label="Abrir el perfil de GitHub en una pestaña nueva"
-                  >
-                    <Icon name="github" size={16} />
-                    Perfil de GitHub <span aria-hidden="true">↗</span>
-                  </a>
-                )
-              }
-            </article>
-          ))
-        }
-      </div>
+          <ul class="mt-8 flex flex-wrap gap-2" aria-label={'Tecnologías de ' + project.title}>
+            {project.tech.map((technology) => <li class="border border-ink bg-bg-dark px-3 py-2 font-mono text-[0.65rem] font-bold uppercase">{technology}</li>)}
+          </ul>
+
+          {project.github && (
+            <a href={project.github} target="_blank" rel="noopener noreferrer" class="mt-7 inline-flex min-h-11 items-center gap-2 border-b-2 border-ink text-sm font-black hover:text-signal" aria-label="Abrir el perfil de GitHub en una pestaña nueva">
+              <Icon name="github" size={17} /> Ver en GitHub <span aria-hidden="true">↗</span>
+            </a>
+          )}
+        </article>
+      ))
+    }
+  </div>
+
+  <div class="mt-16">
+    <div class="mb-6 flex flex-wrap items-end justify-between gap-4">
+      <h3 class="text-2xl font-black uppercase tracking-[-0.035em] text-ink">Sistemas profesionales</h3>
+      <p class="font-mono text-[0.68rem] font-bold uppercase tracking-[0.12em] text-subtle">Caja Tacna / Entorno financiero</p>
     </div>
-
-    <div>
-      <h3 class="mb-5 text-sm font-semibold uppercase tracking-[0.12em] text-muted">
-        Soluciones profesionales · Caja Tacna
-      </h3>
-      <div class="grid border-t border-border-dark md:grid-cols-2">
-        {
-          professionalProjects.map((project) => (
-            <article class="border-b border-border-dark py-8 md:px-7 md:odd:border-r md:odd:pl-0">
-              <h4 class="text-xl font-semibold tracking-[-0.025em] text-ink">{project.title}</h4>
-              <p class="mt-4 max-w-xl text-[0.95rem] leading-7 text-muted">{project.description}</p>
-
-              <ul class="mt-5 flex flex-wrap gap-x-4 gap-y-2" aria-label={'Tecnologías de ' + project.title}>
-                {
-                  project.tech.map((technology) => (
-                    <li class="font-mono text-[0.7rem] uppercase tracking-[0.12em] text-subtle">{technology}</li>
-                  ))
-                }
-              </ul>
-            </article>
-          ))
-        }
-      </div>
+    <div class="grid border-l-2 border-t-2 border-ink md:grid-cols-2">
+      {
+        professionalProjects.map((project, index) => (
+          <article class="group min-h-72 border-b-2 border-r-2 border-ink bg-card-bg p-6 transition-colors hover:bg-signal hover:text-white sm:p-8">
+            <div class="flex justify-between font-mono text-[0.65rem] font-black uppercase tracking-[0.12em] text-subtle group-hover:text-white/70">
+              <span>Solution</span><span>{String(index + 3).padStart(2, '0')}</span>
+            </div>
+            <h4 class="mt-8 max-w-md text-2xl font-black uppercase leading-tight tracking-[-0.035em]">{project.title}</h4>
+            <p class="mt-4 max-w-xl text-[0.95rem] leading-7 text-muted group-hover:text-white/75">{project.description}</p>
+            <ul class="mt-6 flex flex-wrap gap-x-4 gap-y-2" aria-label={'Tecnologías de ' + project.title}>
+              {project.tech.map((technology) => <li class="font-mono text-[0.66rem] font-bold uppercase tracking-[0.08em] group-hover:text-white">{technology}</li>)}
+            </ul>
+          </article>
+        ))
+      }
     </div>
   </div>
 </section>

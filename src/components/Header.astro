@@ -3,45 +3,41 @@ import { developer } from '../data/portfolio';
 import Icon from './Icon.astro';
 
 const navigation = [
-  { href: '#experiencia', label: 'Experiencia' },
-  { href: '#proyectos', label: 'Trabajo' },
-  { href: '#stack', label: 'Especialidad' },
-  { href: '#contacto', label: 'Contacto' },
+  { href: '#experiencia', label: 'Experiencia', index: '01' },
+  { href: '#proyectos', label: 'Proyectos', index: '02' },
+  { href: '#stack', label: 'Capacidades', index: '03' },
+  { href: '#contacto', label: 'Contacto', index: '04' },
 ];
 ---
 
-<header class="sticky top-0 z-50 border-b border-border-dark/80 bg-bg-dark/95 backdrop-blur-md">
-  <div class="mx-auto flex h-[4.5rem] w-full max-w-6xl items-center justify-between px-5 sm:px-8 lg:px-10">
-    <a
-      href="#inicio"
-      class="inline-flex min-h-11 items-center gap-3 font-bold tracking-[-0.02em] text-ink transition-colors hover:text-accent"
-      aria-label="Ir al inicio"
-    >
-      <span class="text-lg">RZ<span class="text-accent">.</span></span>
-      <span class="hidden border-l border-border-dark pl-3 text-xs font-medium text-muted sm:inline">
-        Arquitectura de software
+<header class="sticky top-0 z-50 border-b border-white/15 bg-ink text-bg-dark">
+  <div class="mx-auto flex h-[4.75rem] w-full max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-10">
+    <a href="#inicio" class="group inline-flex min-h-11 items-center gap-3" aria-label="Ir al inicio">
+      <span class="grid size-9 place-items-center bg-accent font-mono text-sm font-black text-ink transition-transform group-hover:rotate-6">
+        RZ
+      </span>
+      <span class="hidden text-[0.68rem] font-bold uppercase leading-4 tracking-[0.16em] text-bg-dark/70 sm:block">
+        Software<br />Architect
       </span>
     </a>
 
-    <nav class="hidden items-center gap-7 md:flex" aria-label="Navegación principal">
+    <nav class="hidden items-center gap-8 lg:flex" aria-label="Navegación principal">
       {
         navigation.map((item) => (
-          <a
-            href={item.href}
-            class="inline-flex min-h-11 items-center text-sm font-medium text-muted transition-colors hover:text-ink"
-          >
-            {item.label}
+          <a href={item.href} class="group inline-flex min-h-11 items-center gap-2 text-sm font-bold">
+            <span class="font-mono text-[0.62rem] text-accent">{item.index}</span>
+            <span class="text-bg-dark/75 transition-colors group-hover:text-white">{item.label}</span>
           </a>
         ))
       }
     </nav>
 
-    <div class="hidden items-center gap-1 md:flex">
+    <div class="flex items-center gap-1">
       <a
         href={developer.github}
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex size-11 items-center justify-center text-muted transition-colors hover:text-accent"
+        class="hidden size-11 items-center justify-center text-bg-dark/65 transition-colors hover:text-accent sm:inline-flex"
         aria-label="Abrir GitHub en una pestaña nueva"
       >
         <Icon name="github" size={18} />
@@ -50,50 +46,45 @@ const navigation = [
         href={developer.linkedin}
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex size-11 items-center justify-center text-muted transition-colors hover:text-accent"
+        class="hidden size-11 items-center justify-center text-bg-dark/65 transition-colors hover:text-accent sm:inline-flex"
         aria-label="Abrir LinkedIn en una pestaña nueva"
       >
         <Icon name="linkedin" size={18} />
       </a>
+
+      <details class="nav-disclosure relative lg:hidden">
+        <summary
+          class="inline-flex size-11 cursor-pointer items-center justify-center border border-white/20 text-bg-dark"
+          aria-label="Abrir navegación"
+        >
+          <svg class="menu-open" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <line x1="3" y1="6" x2="19" y2="6" />
+            <line x1="3" y1="11" x2="19" y2="11" />
+            <line x1="3" y1="16" x2="19" y2="16" />
+          </svg>
+          <svg class="menu-close" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <line x1="4" y1="4" x2="18" y2="18" />
+            <line x1="18" y1="4" x2="4" y2="18" />
+          </svg>
+          <span class="sr-only">Menú</span>
+        </summary>
+
+        <nav class="absolute right-0 top-[calc(100%+0.8rem)] w-[min(20rem,calc(100vw-2.5rem))] border border-white/20 bg-ink p-3 shadow-2xl" aria-label="Navegación móvil">
+          <ul>
+            {
+              navigation.map((item) => (
+                <li class="border-b border-white/15 last:border-b-0">
+                  <a href={item.href} class="flex min-h-12 items-center gap-3 px-3 text-sm font-bold text-bg-dark/80 hover:text-white">
+                    <span class="font-mono text-[0.65rem] text-accent">{item.index}</span>
+                    {item.label}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+      </details>
     </div>
-
-    <details class="nav-disclosure relative md:hidden">
-      <summary
-        class="inline-flex size-11 cursor-pointer items-center justify-center text-muted transition-colors hover:text-ink"
-        aria-label="Abrir navegación"
-      >
-        <svg class="menu-open" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
-          <line x1="3" y1="6" x2="19" y2="6" />
-          <line x1="3" y1="11" x2="19" y2="11" />
-          <line x1="3" y1="16" x2="19" y2="16" />
-        </svg>
-        <svg class="menu-close" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
-          <line x1="4" y1="4" x2="18" y2="18" />
-          <line x1="18" y1="4" x2="4" y2="18" />
-        </svg>
-        <span class="sr-only">Menú</span>
-      </summary>
-
-      <nav
-        class="absolute right-0 top-[calc(100%+0.75rem)] w-[min(18rem,calc(100vw-2.5rem))] border border-border-dark bg-card-bg p-3 shadow-2xl shadow-black/30"
-        aria-label="Navegación móvil"
-      >
-        <ul>
-          {
-            navigation.map((item) => (
-              <li class="border-b border-border-dark last:border-b-0">
-                <a
-                  href={item.href}
-                  class="flex min-h-11 items-center px-3 text-sm font-medium text-muted transition-colors hover:bg-white/[0.03] hover:text-ink"
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </nav>
-    </details>
   </div>
 </header>
 
