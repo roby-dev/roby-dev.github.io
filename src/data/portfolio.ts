@@ -10,9 +10,9 @@ export const developer = {
 
 // Credenciales: lo primero que debe entender un cliente o reclutador internacional.
 export const stats = [
-  { value: "Fintech", label: "software bancario regulado en producción desde 2023" },
-  { value: "Pagos", label: "integraciones con redes de tarjetas, billeteras y pasarelas" },
-  { value: "Líder técnico", label: "code reviews, estándares de arquitectura y supervisión de proyectos" },
+  { value: "~7.000", label: "validaciones de tarjeta al mes con cifrado HSM, en producción" },
+  { value: "~10", label: "desarrolladores bajo mis code reviews y aprobación de arquitectura" },
+  { value: "< 1 s", label: "tiempo de respuesta de la API de recaudación que diseñé" },
   { value: "Remoto", label: "disponible para equipos y clientes internacionales" }
 ];
 
@@ -37,26 +37,26 @@ export const cases = [
   {
     tag: "Pagos · Seguridad",
     title: "Validación de tarjetas con cifrado por hardware",
-    problem: "Una red de pagos exigía validar credenciales dinámicas de tarjeta con requisitos de seguridad estrictos.",
-    solution: "Diseñé la integración con cifrado y descifrado en un módulo de seguridad de hardware (HSM), sobre Clean Architecture y CQRS.",
-    result: "Flujo crítico de tarjetas en producción, cumpliendo las exigencias de seguridad del proveedor.",
+    problem: "Una red de pagos exigía validar el CVV dinámico de las tarjetas con requisitos de seguridad estrictos.",
+    solution: "Integré la validación con cifrado y descifrado en un módulo de seguridad de hardware (HSM), sobre Clean Architecture y CQRS.",
+    result: "En producción, con unas 7.000 operaciones al mes.",
     tech: [".NET 8", "HSM", "CQRS", "Clean Architecture"]
   },
   {
     tag: "Integraciones",
-    title: "API de recaudación con socios externos",
-    problem: "Integrar varios recaudadores externos sin que cada uno obligue a cambiar el núcleo del sistema.",
-    solution: "Arquitecté una API en .NET 8 extensible por socio, contenedorizada con Docker y preparada para balanceo de carga.",
-    result: "Nueva API en producción con respuestas inferiores a 1 segundo.",
-    tech: [".NET 8", "Docker", "Clean Architecture", "Strategy"]
+    title: "API de recaudación para entidades externas",
+    problem: "Permitir que distintas entidades financieras cobren servicios de la institución, como el pago de créditos en línea, a través de una plataforma de pagos externa.",
+    solution: "Diseñé un puente en .NET 8 según las especificaciones de la red de pagos, con arquitectura modular por entidad y escalable tras un balanceador de carga.",
+    result: "Respuestas inferiores a 1 segundo.",
+    tech: [".NET 8", "Clean Architecture", "Balanceo de carga", "Docker"]
   },
   {
     tag: "Observabilidad",
     title: "Monitoreo y alertas de servicios financieros",
-    problem: "Vigilar el estado de los servicios financieros y alertar a tiempo, con reglas distintas para cada servicio.",
-    solution: "Desarrollé el backend en microservicios con colas, caché y tareas programadas, y el frontend de gestión en Angular.",
-    result: "Sistema interno de monitoreo y alertas construido de punta a punta.",
-    tech: [".NET 8", "RabbitMQ", "Redis", "MongoDB", "Angular"]
+    problem: "Detectar caídas y lentitud en servicios financieros, con reglas distintas para cada servicio.",
+    solution: "Desarrollé una plataforma de microservicios donde cada servicio se registra con health checks estándar o personalizados, su propia frecuencia y umbrales de caída y lentitud.",
+    result: "Alertas por usuario vía email o SMS, con backend y frontend construidos de punta a punta.",
+    tech: [".NET 8", "Hangfire", "RabbitMQ", "Redis", "MongoDB", "Angular"]
   },
   {
     tag: "Modernización",
@@ -78,16 +78,16 @@ export const cases = [
 
 export const experiences = [
   {
-    role: "Analista Arquitecto de Sistemas",
+    role: "Arquitecto de Software",
     company: "Entidad financiera regulada",
     period: "Abril 2024 – Presente",
     tasks: [
-      "Arquitectura de integraciones críticas: validación de tarjetas con HSM y nueva API de recaudación con respuestas inferiores a 1 s",
-      "Establecí y dirijo los code reviews del equipo para sostener estándares de arquitectura y código limpio",
-      "Supervisión técnica de proyectos clave: integración con billetera digital y onboarding con biometría facial en Flutter",
-      "Sistema interno de monitoreo y alertas: backend en microservicios y frontend en Angular",
-      "Pruebas de estrés con Apache JMeter y optimización de Entity Framework: arranque en frío de 45 s a 5 s",
-      "CI/CD para compilar y publicar las apps móviles (Android e iOS) de forma automática"
+      "API de recaudación para entidades externas: modular por entidad, escalable con balanceador y con respuestas inferiores a 1 s",
+      "Validación de CVV dinámico con cifrado HSM, en producción con unas 7.000 operaciones al mes",
+      "Diseñé la arquitectura de la app móvil Flutter y apruebo cada nueva implementación, incluidas la billetera digital y el onboarding biométrico",
+      "Establecí y dirijo los code reviews de un equipo de unos 10 desarrolladores",
+      "Plataforma de monitoreo con health checks por servicio y alertas por email o SMS",
+      "Optimización de Entity Framework (arranque en frío de 45 s a 5 s), pruebas de estrés con JMeter y CI/CD para apps móviles"
     ]
   },
   {
