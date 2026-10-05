@@ -3,76 +3,49 @@ import { developer } from '../data/portfolio';
 import Icon from './Icon.astro';
 ---
 
-<section id="inicio" aria-labelledby="hero-heading" class="py-8 sm:py-12 lg:py-16">
-  <div class="fade-up overflow-hidden rounded-xl border border-white/10 bg-panel shadow-[0_24px_80px_rgb(0_0_0/0.24)]">
-    <div class="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 px-5 py-4 sm:px-8">
-      <p class="font-mono text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-subtle">
-        Portfolio · 2026
+<section id="inicio" aria-labelledby="hero-heading" class="py-12 sm:py-16 lg:py-20">
+  <div class="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_24rem] lg:gap-16">
+    <div class="min-w-0">
+      <p class="fade-up d1 font-heading text-xl font-semibold text-muted sm:text-2xl">Hola, soy</p>
+      <h1 id="hero-heading" class="fade-up d2 mt-2 text-[clamp(2.8rem,8vw,5.25rem)] font-bold leading-[1.02] tracking-[-0.04em] text-ink">
+        Roby Zúñiga
+      </h1>
+      <p class="fade-up d2 mt-3 font-heading text-[clamp(1.35rem,3.4vw,1.9rem)] font-semibold text-accent">
+        Arquitecto de Software
       </p>
-      <p class="inline-flex items-center gap-2 text-xs font-medium text-muted">
-        <span class="size-1.5 rounded-full bg-accent" aria-hidden="true"></span>
-        Disponible para nuevos retos
+      <p class="fade-up d3 mt-6 max-w-xl text-lg leading-8 text-muted">
+        Diseño backends e integraciones para sistemas financieros que no pueden fallar. Casi cuatro años construyendo y operando software en producción.
       </p>
-    </div>
 
-    <div class="grid lg:grid-cols-[minmax(0,1fr)_21rem]">
-      <div class="min-w-0 px-5 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-20">
-        <p class="fade-up d1 mb-5 text-xs font-semibold uppercase tracking-[0.18em] text-accent-soft">
-          Arquitectura de software · Full Stack
-        </p>
-
-        <h1 id="hero-heading" class="fade-up d2 max-w-4xl text-[clamp(2.35rem,7vw,5.8rem)] font-semibold leading-[0.96] tracking-[-0.055em] text-ink">
-          Construyo software<br class="hidden sm:block" /> serio para problemas reales.
-        </h1>
-
-        <p class="fade-up d3 mt-7 max-w-2xl text-base leading-7 text-muted sm:text-lg sm:leading-8">
-          Casi cuatro años diseñando, integrando y operando productos de extremo a extremo: backend .NET, frontend, datos, arquitectura y entrega continua.
-        </p>
-
-        <div class="fade-up d4 mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-          <a href="#proyectos" class="inline-flex min-h-12 items-center justify-center gap-3 rounded-md bg-accent px-5 text-sm font-bold text-bg-dark transition-colors hover:bg-accent-soft">
-            Ver proyectos <span aria-hidden="true">↓</span>
+      <div class="fade-up d4 mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+        <a href={'mailto:' + developer.email} class="inline-flex min-h-12 items-center justify-center rounded-md bg-accent px-7 text-sm font-bold text-bg-dark transition-colors hover:bg-accent-soft">
+          Contáctame
+        </a>
+        <a href="/cv.pdf" download class="inline-flex min-h-12 items-center justify-center rounded-md border border-white/15 px-7 text-sm font-semibold text-ink transition-colors hover:border-white/35 hover:bg-surface">
+          Mi CV
+        </a>
+        <div class="flex items-center gap-1 sm:ml-2">
+          <a href={developer.github} target="_blank" rel="noopener noreferrer" class="inline-flex size-12 items-center justify-center text-muted transition-colors hover:text-accent-soft" aria-label="Abrir GitHub en una pestaña nueva">
+            <Icon name="github" size={19} />
           </a>
-          <a href="/cv.pdf" download class="inline-flex min-h-12 items-center justify-center rounded-md border border-white/15 bg-surface/40 px-5 text-sm font-semibold text-ink transition-colors hover:border-white/30 hover:bg-surface">
-            Descargar CV
-          </a>
-          <a href={'mailto:' + developer.email} class="inline-flex min-h-12 items-center justify-center px-3 text-sm font-semibold text-accent-soft hover:text-ink">
-            Hablemos <span class="ml-2" aria-hidden="true">↗</span>
+          <a href={developer.linkedin} target="_blank" rel="noopener noreferrer" class="inline-flex size-12 items-center justify-center text-muted transition-colors hover:text-accent-soft" aria-label="Abrir LinkedIn en una pestaña nueva">
+            <Icon name="linkedin" size={19} />
           </a>
         </div>
       </div>
+    </div>
 
-      <aside class="border-t border-white/10 bg-surface/45 px-5 py-10 sm:px-8 lg:border-l lg:border-t-0 lg:px-9 lg:py-16" aria-label="Perfil profesional">
-        <div class="profile-mark mx-auto grid size-24 place-items-center rounded-full border border-accent/50 bg-bg-dark font-mono text-xl font-semibold tracking-[0.16em] text-accent-soft sm:size-28">
-          RZ
-        </div>
-        <div class="mt-9 text-center lg:text-left">
-          <p class="text-xl font-semibold tracking-[-0.02em] text-ink">{developer.name}</p>
-          <p class="mt-2 text-sm leading-6 text-muted">{developer.title}</p>
-        </div>
-        <dl class="mt-8 divide-y divide-white/10 border-y border-white/10 text-sm">
-          <div class="flex justify-between gap-4 py-4">
-            <dt class="text-subtle">Base</dt>
-            <dd class="text-right font-medium text-ink">{developer.location}</dd>
-          </div>
-          <div class="flex justify-between gap-4 py-4">
-            <dt class="text-subtle">Experiencia</dt>
-            <dd class="text-right font-medium text-ink">Casi 4 años</dd>
-          </div>
-          <div class="flex justify-between gap-4 py-4">
-            <dt class="text-subtle">Enfoque</dt>
-            <dd class="text-right font-medium text-ink">End-to-end</dd>
-          </div>
-        </dl>
-        <div class="mt-6 flex justify-center gap-2 lg:justify-start">
-          <a href={developer.github} target="_blank" rel="noopener noreferrer" class="inline-flex size-11 items-center justify-center rounded-full border border-white/10 text-muted transition-colors hover:border-accent/50 hover:text-accent-soft" aria-label="Abrir GitHub en una pestaña nueva">
-            <Icon name="github" size={17} />
-          </a>
-          <a href={developer.linkedin} target="_blank" rel="noopener noreferrer" class="inline-flex size-11 items-center justify-center rounded-full border border-white/10 text-muted transition-colors hover:border-accent/50 hover:text-accent-soft" aria-label="Abrir LinkedIn en una pestaña nueva">
-            <Icon name="linkedin" size={17} />
-          </a>
-        </div>
-      </aside>
+    <div class="fade-up d3 mx-auto w-full max-w-[17rem] sm:max-w-[22rem] lg:max-w-none">
+      <div class="aspect-square w-full rounded-full border-[10px] border-accent p-3">
+        <img
+          src="/roby.jpg"
+          alt="Retrato de Roby Zúñiga"
+          width="397"
+          height="531"
+          fetchpriority="high"
+          class="size-full rounded-full object-cover object-[50%_22%]"
+        />
+      </div>
     </div>
   </div>
 </section>
