@@ -1,0 +1,18 @@
+---
+import { services } from '../data/portfolio';
+---
+
+<section id="que-hago" aria-labelledby="services-heading" class="py-12 sm:py-16">
+  <h2 id="services-heading" class="text-3xl font-semibold tracking-[-0.03em] text-ink sm:text-4xl">Qué hago</h2>
+  <div class="mt-8 grid gap-5 md:grid-cols-3">
+    {
+      services.map((service) => (
+        <article class="fade-up rounded-xl border border-white/10 bg-panel p-7">
+          <div class="mb-5 h-1 w-10 bg-accent" aria-hidden="true"></div>
+          <h3 class="text-lg font-semibold text-ink">{service.title}</h3>
+          <p class="mt-3 text-[0.95rem] leading-7 text-muted">{service.description}</p>
+        </article>
+      ))
+    }
+  </div>
+</section>

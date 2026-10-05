@@ -11,21 +11,21 @@ export const developer = {
 export const experiences = [
   {
     role: "Analista Arquitecto de Sistemas",
-    company: "Caja Tacna",
+    company: "Entidad financiera regional",
     period: "Abril 2024 – Presente",
     tasks: [
-      "API de Recaudadores Externos: arquitectura extensible a N recaudadores (2 activos), contenedorización con Docker y preparación para balanceo de carga",
-      "Sistema de monitoreo para 20 servicios financieros — configuración independiente por servicio vía Hangfire, 3 microservicios desacoplados + frontend de gestión",
-      "Integración financiera crítica Unibanca: CVV dinámico con cifrado HSM sobre Clean Architecture y CQRS",
-      "Arranque en frío EF Core reducido de 45s → 3.5s (92% de mejora de performance)",
-      "Supervisión técnica de BiPay y onboarding biométrico en Flutter para canal digital",
-      "CI/CD en TFS 2017 para releases iOS y Android — automatización de entrega móvil",
+      "Plataforma de integración con recaudadores externos: arquitectura extensible a N socios (2 activos), contenedorizada con Docker y preparada para balanceo de carga",
+      "Sistema de monitoreo para 20 servicios financieros — configuración independiente por servicio, 3 microservicios desacoplados y frontend de gestión",
+      "Integración crítica de seguridad para tarjetas con cifrado en módulo dedicado, sobre Clean Architecture y CQRS",
+      "Arranque en frío de la capa de datos reducido de 45 s a 3,5 s (92 % de mejora)",
+      "Supervisión técnica de aplicaciones móviles y onboarding biométrico en Flutter para el canal digital",
+      "CI/CD para releases iOS y Android — automatización de la entrega móvil",
       "Code reviews y pruebas de estrés con Apache JMeter en APIs financieras de alto impacto"
     ]
   },
   {
     role: "Asistente Desarrollador de Sistemas",
-    company: "Caja Tacna",
+    company: "Entidad financiera regional",
     period: "Julio 2023 – Abril 2024",
     tasks: [
       "Migración de lógica de negocio de Stored Procedures a C# en APIs .NET Framework 4.8 — mayor mantenibilidad y cobertura de tests",
@@ -35,21 +35,43 @@ export const experiences = [
   },
   {
     role: "Analista Desarrollador",
-    company: "Soporte Remoto S.A.C.",
+    company: "Empresa de tecnología y entretenimiento",
     period: "Octubre 2022 – Julio 2023",
     tasks: [
       "Dashboard administrativo unificado en Blazor — consolidación de múltiples herramientas internas en una sola interfaz operativa",
-      "Plataforma de recargas para casino con pasarela Kushki y WebSockets — transacciones en tiempo real con conciliación automática",
-      "Administración de servidores IIS, certificados SSL Wildcard y DNS"
+      "Plataforma de recargas con pasarela de pagos y WebSockets — transacciones en tiempo real con conciliación automática",
+      "Administración de servidores IIS, certificados SSL y DNS"
     ]
   },
   {
     role: "Desarrollador Full Stack",
-    company: "Dirección Regional de Salud Tacna",
+    company: "Sector salud, gobierno regional",
     period: "Mayo 2022 – Septiembre 2022",
     tasks: [
       "Digitalización del registro de capacitaciones para 100+ trabajadores del sector salud — eliminación completa del proceso manual en papel"
     ]
+  }
+];
+
+export const stats = [
+  { value: "4+", label: "años construyendo software en producción" },
+  { value: "20", label: "servicios financieros monitoreados" },
+  { value: "−92 %", label: "tiempo de arranque en una API crítica" },
+  { value: "100+", label: "usuarios que dejaron el papel" }
+];
+
+export const services = [
+  {
+    title: "Arquitectura backend",
+    description: "APIs en .NET con Clean Architecture y CQRS, pensadas para crecer sin tener que reescribirse."
+  },
+  {
+    title: "Integraciones y tiempo real",
+    description: "Colas, mensajería, WebSockets y tareas en segundo plano entre sistemas críticos."
+  },
+  {
+    title: "Entrega y calidad",
+    description: "CI/CD, contenedores, pruebas de estrés y revisión de código para llegar a producción sin sobresaltos."
   }
 ];
 
@@ -116,20 +138,20 @@ export const projects = [
     github: "https://github.com/roby-dev"
   },
   {
-    title: "API Recaudadores Externos",
-    description: "API de alto rendimiento para integración con recaudadores externos en Caja Tacna.",
+    title: "Integración con Recaudadores Externos",
+    description: "Plataforma extensible para integrar socios de recaudación sin modificar el núcleo del sistema.",
     tech: [".NET 8", "Clean Architecture", "CQRS"],
     type: "professional" as const
   },
   {
     title: "Sistema de Monitoreo",
-    description: "Plataforma interna de monitoreo en tiempo real con arquitectura de microservicios.",
+    description: "Monitoreo de 20 servicios con configuración independiente, sobre microservicios desacoplados.",
     tech: [".NET 8", "RabbitMQ", "Redis", "MongoDB", "Angular"],
     type: "professional" as const
   },
   {
-    title: "Integración Unibanca CVV Dinámico",
-    description: "Integración financiera crítica con cifrado HSM para generación de CVV dinámico.",
+    title: "Credenciales Dinámicas para Tarjetas",
+    description: "Integración crítica con cifrado en módulo de seguridad dedicado.",
     tech: [".NET 8", "HSM", "CQRS"],
     type: "professional" as const
   },

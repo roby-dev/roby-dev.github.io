@@ -1,16 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  --color-accent: #c98b72;
-  --color-accent-soft: #e4b8a5;
-  --color-bg-dark: #0b111a;
-  --color-panel: #111a27;
-  --color-surface: #172231;
-  --color-border-dark: #293647;
-  --color-ink: #edf1f5;
-  --color-muted: #a7b1bf;
-  --color-subtle: #808c9d;
-  --font-display: "Inter", "Segoe UI", "Helvetica Neue", ui-sans-serif, system-ui, sans-serif;
+  --color-accent: #f08a6e;
+  --color-accent-soft: #ffb39e;
+  --color-bg-dark: #0e1116;
+  --color-panel: #141922;
+  --color-surface: #1b222c;
+  --color-border-dark: #232b37;
+  --color-ink: #eef1f5;
+  --color-muted: #b4bdc9;
+  --color-subtle: #8a95a5;
+  --font-display: "Figtree", "Segoe UI", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Sora", "Figtree", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
 }
 
@@ -19,8 +20,8 @@
 }
 
 html {
-  background: #0b111a;
-  color: #edf1f5;
+  background: #0e1116;
+  color: #eef1f5;
   scroll-padding-top: 5.25rem;
 }
 
@@ -28,7 +29,7 @@ body {
   margin: 0;
   min-width: 20rem;
   overflow-x: clip;
-  background: #0b111a;
+  background: #0e1116;
 }
 
 body::before {
@@ -49,12 +50,12 @@ body::before {
 }
 
 ::selection {
-  background: #c98b72;
-  color: #0b111a;
+  background: #f08a6e;
+  color: #0e1116;
 }
 
 :where(a, button, summary):focus-visible {
-  outline: 3px solid #e4b8a5;
+  outline: 3px solid #ffb39e;
   outline-offset: 4px;
   border-radius: 0.25rem;
 }
@@ -85,7 +86,7 @@ body::before {
   position: absolute;
   z-index: -1;
   content: "";
-  border: 1px solid rgb(201 139 114 / 0.35);
+  border: 1px solid rgb(240 138 110 / 0.35);
   border-radius: 999px;
 }
 
@@ -102,8 +103,8 @@ body::before {
   position: relative;
   min-height: 13rem;
   overflow: hidden;
-  border: 1px solid #293647;
-  background: #0e1622;
+  border: 1px solid #232b37;
+  background: #10151c;
 }
 
 .project-visual::before {
@@ -130,10 +131,10 @@ body::before {
   min-width: 0;
   min-height: 4.25rem;
   place-items: center;
-  border: 1px solid rgb(201 139 114 / 0.6);
-  background: #172231;
+  border: 1px solid rgb(240 138 110 / 0.6);
+  background: #1b222c;
   padding: 0.5rem;
-  color: #e4b8a5;
+  color: #ffb39e;
   font-family: var(--font-mono);
   font-size: clamp(0.5rem, 2vw, 0.65rem);
   font-weight: 700;
@@ -148,7 +149,7 @@ body::before {
   height: 1px;
   margin-left: calc(-100% - 1rem);
   content: "";
-  background: #c98b72;
+  background: #f08a6e;
 }
 
 .fade-up {
@@ -211,4 +212,11 @@ body::before {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
 }
