@@ -2,13 +2,13 @@
 import { stats } from '../data/portfolio';
 ---
 
-<section aria-label="Cifras destacadas" class="pb-12 sm:pb-16">
+<section aria-label="Credenciales" class="pb-12 sm:pb-16">
   <dl class="fade-up grid grid-cols-2 gap-x-6 gap-y-8 rounded-xl border border-white/10 bg-panel p-6 sm:p-8 lg:grid-cols-4">
     {
       stats.map((stat) => (
         <div class="flex flex-col-reverse justify-end">
           <dt class="mt-2 text-sm leading-5 text-muted">{stat.label}</dt>
-          <dd class="font-heading text-4xl font-bold tracking-[-0.03em] text-accent sm:text-5xl">{stat.value}</dd>
+          <dd class="font-heading text-2xl font-bold tracking-[-0.02em] text-accent sm:text-3xl">{stat.value}</dd>
         </div>
       ))
     }
