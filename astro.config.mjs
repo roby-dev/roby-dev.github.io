@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: 'https://roby-dev.up.railway.app',
+  site: 'https://roby-dev.github.io',
   vite: {
     plugins: [tailwindcss()],
   },
