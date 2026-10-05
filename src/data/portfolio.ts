@@ -13,7 +13,7 @@ export const stats = [
   { value: "Fintech", label: "software bancario regulado en producción desde 2023" },
   { value: "Pagos", label: "integraciones con redes de tarjetas, billeteras y pasarelas" },
   { value: "Líder técnico", label: "code reviews, estándares de arquitectura y supervisión de proyectos" },
-  { value: "Remoto", label: "inglés profesional, disponible para equipos y clientes internacionales" }
+  { value: "Remoto", label: "disponible para equipos y clientes internacionales" }
 ];
 
 // Qué puede contratar alguien: pensado para freelance.
@@ -45,17 +45,17 @@ export const cases = [
   {
     tag: "Integraciones",
     title: "API de recaudación con socios externos",
-    problem: "Cada nuevo socio de recaudación implicaba tocar el núcleo del sistema y arriesgar lo que ya funcionaba.",
+    problem: "Integrar varios recaudadores externos sin que cada uno obligue a cambiar el núcleo del sistema.",
     solution: "Arquitecté una API en .NET 8 extensible por socio, contenedorizada con Docker y preparada para balanceo de carga.",
-    result: "Nuevos socios sin modificar el núcleo, con respuestas por debajo de 3,5 s.",
+    result: "Nueva API en producción con respuestas inferiores a 1 segundo.",
     tech: [".NET 8", "Docker", "Clean Architecture", "Strategy"]
   },
   {
     tag: "Observabilidad",
     title: "Monitoreo y alertas de servicios financieros",
-    problem: "Las caídas de servicios se detectaban tarde, muchas veces por reporte de los propios usuarios.",
-    solution: "Construí de punta a punta una plataforma de microservicios con colas, caché y tareas programadas, más un frontend de gestión.",
-    result: "20 servicios vigilados, cada uno con su propia configuración y alertas.",
+    problem: "Vigilar el estado de los servicios financieros y alertar a tiempo, con reglas distintas para cada servicio.",
+    solution: "Desarrollé el backend en microservicios con colas, caché y tareas programadas, y el frontend de gestión en Angular.",
+    result: "Sistema interno de monitoreo y alertas construido de punta a punta.",
     tech: [".NET 8", "RabbitMQ", "Redis", "MongoDB", "Angular"]
   },
   {
@@ -68,11 +68,11 @@ export const cases = [
   },
   {
     tag: "Pagos · Tiempo real",
-    title: "Plataforma de recargas con pasarela de pagos",
-    problem: "Las recargas se gestionaban de forma manual y sin conciliación automática.",
-    solution: "Integré una pasarela de pagos con WebSockets y workers en segundo plano que procesan cada transacción.",
-    result: "Recargas en tiempo real con conciliación automática.",
-    tech: ["C#", "WebSockets", "Windows Services", "SQL Server"]
+    title: "Recargas con tarjeta para máquinas de juego",
+    problem: "Permitir recargar saldo con tarjeta de débito o crédito, vinculando al usuario con la máquina mediante un código QR.",
+    solution: "Desarrollé la plataforma en solitario: pasarela de pagos, un Worker Service que detecta cambios de saldo y WebSockets que confirman cada recarga.",
+    result: "Demostrada en funcionamiento en una máquina de juego durante una feria del sector.",
+    tech: ["Blazor WebAssembly", "Pasarela de pagos", ".NET Worker Service", "WebSockets"]
   }
 ];
 
@@ -82,10 +82,10 @@ export const experiences = [
     company: "Entidad financiera regulada",
     period: "Abril 2024 – Presente",
     tasks: [
-      "Arquitectura de integraciones críticas: validación de tarjetas con HSM y API de recaudación extensible a socios externos",
+      "Arquitectura de integraciones críticas: validación de tarjetas con HSM y nueva API de recaudación con respuestas inferiores a 1 s",
       "Establecí y dirijo los code reviews del equipo para sostener estándares de arquitectura y código limpio",
       "Supervisión técnica de proyectos clave: integración con billetera digital y onboarding con biometría facial en Flutter",
-      "Plataforma de monitoreo y alertas para 20 servicios financieros (backend en microservicios + frontend Angular)",
+      "Sistema interno de monitoreo y alertas: backend en microservicios y frontend en Angular",
       "Pruebas de estrés con Apache JMeter y optimización de Entity Framework: arranque en frío de 45 s a 5 s",
       "CI/CD para compilar y publicar las apps móviles (Android e iOS) de forma automática"
     ]
@@ -102,12 +102,12 @@ export const experiences = [
   },
   {
     role: "Analista Desarrollador",
-    company: "Empresa de tecnología y entretenimiento",
+    company: "Empresa de tecnología para el sector entretenimiento",
     period: "Octubre 2022 – Julio 2023",
     tasks: [
-      "Plataforma de recargas con pasarela de pagos, WebSockets y workers en segundo plano",
-      "Dashboard administrativo en Blazor que unificó varios sistemas internos",
-      "Administración de servidores IIS, certificados SSL y DNS"
+      "En un equipo de dos desarrolladores: permisos granulares y tickets acumulables en un integrador central migrado a Blazor Server, con pruebas unitarias y de integración",
+      "Plataforma de recargas con tarjeta y QR desarrollada en solitario, demostrada en una feria del sector",
+      "Mantenimiento de sistemas legacy en .NET Framework y configuración de un VPS en AWS con IIS, DNS y SSL wildcard"
     ]
   },
   {
@@ -115,7 +115,7 @@ export const experiences = [
     company: "Sector salud, gobierno regional",
     period: "Mayo 2022 – Septiembre 2022",
     tasks: [
-      "Sistema completo de registro de capacitaciones que eliminó el papel y Excel para 100+ trabajadores"
+      "Plataforma de gestión de capacitaciones desarrollada en solitario, integrada con el sistema de RR. HH.; reemplazó el archivo físico y el cálculo manual de horas"
     ]
   }
 ];
