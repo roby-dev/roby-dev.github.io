@@ -8,28 +8,12 @@ export const developer = {
   email: "rgersonzs95@gmail.com"
 };
 
-// Credenciales: lo primero que debe entender un cliente o reclutador internacional.
+// Cifras destacadas (todas confirmadas en el CV).
 export const stats = [
   { value: "~7.000", label: "validaciones de tarjeta al mes con cifrado HSM, en producción" },
   { value: "~10", label: "desarrolladores bajo mis code reviews y aprobación de arquitectura" },
   { value: "< 1 s", label: "tiempo de respuesta de la API de recaudación que diseñé" },
-  { value: "Remoto", label: "disponible para equipos y clientes internacionales" }
-];
-
-// Qué puede contratar alguien: pensado para freelance.
-export const services = [
-  {
-    title: "Integraciones de pago y terceros",
-    description: "Conecto tu sistema con redes de tarjetas, pasarelas, billeteras y socios externos, con cifrado y trazabilidad de nivel bancario."
-  },
-  {
-    title: "Arquitectura y modernización .NET",
-    description: "Diseño APIs y microservicios con Clean Architecture y CQRS, o saco la lógica de sistemas legacy para que vuelvan a ser mantenibles y testeables."
-  },
-  {
-    title: "Liderazgo técnico y calidad",
-    description: "Code reviews, estándares de equipo, pruebas de estrés y CI/CD (también para apps móviles) para llegar a producción sin sorpresas."
-  }
+  { value: "45 s → 5 s", label: "arranque en frío tras optimizar Entity Framework en servicios críticos" }
 ];
 
 // Casos profesionales: problema → qué hice → resultado. Sin nombres de clientes ni proveedores.
